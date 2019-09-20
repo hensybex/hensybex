@@ -5,17 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/17 21:36:25 by medesmon          #+#    #+#             */
-/*   Updated: 2019/04/17 22:05:50 by medesmon         ###   ########.fr       */
+/*   Created: 2019/09/20 04:33:08 by medesmon          #+#    #+#             */
+/*   Updated: 2019/09/20 04:42:31 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_lltoa(long long n)
+char	*ft_lltoa(long long n)
 {
-	char		    	*mem;
-	unsigned int	    len;
+	char				*mem;
+	unsigned int		len;
 	unsigned long long	neg;
 
 	if (!(len = ft_count_num(n)))

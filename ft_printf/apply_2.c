@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   apply.c                                            :+:      :+:    :+:   */
+/*   apply_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 03:42:43 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/20 03:44:32 by medesmon         ###   ########.fr       */
+/*   Created: 2019/09/20 03:43:45 by medesmon          #+#    #+#             */
+/*   Updated: 2019/09/20 03:44:08 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-int	apply_width(int width, int num, int zero)
+int	apply_width_long_long(int width, unsigned long long num, int zero)
 {
 	int temp;
 	int counter;
 
 	counter = 0;
-	temp = width - ft_count_num(num) - 1;
+	temp = width - ft_count_num_long_long(num) - 1;
 	while (temp-- > 0)
 	{
 		if (zero == 0)
@@ -30,35 +30,67 @@ int	apply_width(int width, int num, int zero)
 			ft_putchar('0');
 		counter++;
 	}
+	if (num == 0)
+		counter = 1;
 	return (counter);
 }
 
-int	apply_pres(int pres, int num)
+int	apply_width_long(int width, long long num, int zero)
 {
 	int temp;
 	int counter;
 
 	counter = 0;
-	temp = pres - ft_count_num(num) - 1;
+	temp = width - ft_count_num_long(num) - 1;
 	while (temp-- > 0)
 	{
-		ft_putchar('0');
+		if (zero == 0)
+			ft_putchar(' ');
+		else
+			ft_putchar('0');
 		counter++;
 	}
+	if (num == 0)
+		counter = 1;
 	return (counter);
 }
 
-int	apply_pres_16(int pres, int num)
+int	apply_width_16(int width, unsigned long long num, int zero)
 {
 	int temp;
 	int counter;
 
 	counter = 0;
-	temp = pres - ft_count_num_16(num) - 1;
+	temp = width - ft_count_num_16(num) - 1;
 	while (temp-- > 0)
 	{
-		ft_putchar('0');
+		if (zero == 0)
+			ft_putchar(' ');
+		else
+			ft_putchar('0');
 		counter++;
 	}
+	if (num == 0)
+		counter = 1;
+	return (counter);
+}
+
+int	apply_width_8(int width, unsigned long long num, int zero)
+{
+	int temp;
+	int counter;
+
+	counter = 0;
+	temp = width - ft_count_num_8(num) - 1;
+	while (temp-- > 0)
+	{
+		if (zero == 0)
+			ft_putchar(' ');
+		else
+			ft_putchar('0');
+		counter++;
+	}
+	if (num == 0)
+		counter = 1;
 	return (counter);
 }

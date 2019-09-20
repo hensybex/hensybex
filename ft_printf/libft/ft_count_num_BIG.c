@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_num_BIG.c                                 :+:      :+:    :+:   */
+/*   ft_count_num_big.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/27 18:13:47 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/04 12:06:49 by medesmon         ###   ########.fr       */
+/*   Created: 2019/09/20 04:32:17 by medesmon          #+#    #+#             */
+/*   Updated: 2019/09/20 04:52:47 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_count_num_BIG(long n)
+int	ft_count_num_big(long n)
 {
 	long			i;
 

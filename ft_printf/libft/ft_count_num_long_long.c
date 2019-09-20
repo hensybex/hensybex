@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/20 18:05:23 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/04 12:06:51 by medesmon         ###   ########.fr       */
+/*   Created: 2019/09/20 04:32:21 by medesmon          #+#    #+#             */
+/*   Updated: 2019/09/20 04:41:53 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	ft_count_num_long_long(unsigned long long n)
 {
-	long			    i;
+	long				i;
 	unsigned long long	neg;
 
 	i = 0;
-		neg = n;
+	neg = n;
 	while (neg > 0)
 	{
 		neg /= 10;

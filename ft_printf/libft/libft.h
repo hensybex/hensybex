@@ -6,7 +6,7 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/25 23:01:51 by medesmon          #+#    #+#             */
-/*   Updated: 2019/08/27 21:13:07 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/20 04:28:06 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,15 @@ char				*ft_capitalize(char *s);
 size_t				ft_strclen(const char *s, int c);
 char				*ft_strdel1join(char *s1, char *s2);
 void				ft_putnbr_hex(unsigned int n);
-void				ft_putnbr_uns(unsigned int);
-void				ft_putnbr_BIG(unsigned long long n);
-int					ft_count_num_BIG(long n);
-void    			ft_putnbr_8(unsigned int n);
-void    			ft_putnbr_hex_upper(long n);
+void				ft_putnbr_uns(unsigned int n);
+void				ft_putnbr_big(unsigned long long n);
+int					ft_count_num_big(long n);
+void				ft_putnbr_8(unsigned int n);
+void				ft_putnbr_hex_upper(long n);
 int					ft_10_to_8(long n);
 int					ft_10_to_16(unsigned int n);
 int					ft_10_to_8_long(unsigned long long n);
-int     			ft_10_to_16_long(unsigned long long n);
+int					ft_10_to_16_long(unsigned long long n);
 int					ft_count_num_long_long(unsigned long long n);
 int					ft_count_num_long(long long n);
 int					ft_count_num_16(unsigned int n);

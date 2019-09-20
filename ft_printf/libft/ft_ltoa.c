@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/17 21:34:20 by medesmon          #+#    #+#             */
-/*   Updated: 2019/04/17 22:05:56 by medesmon         ###   ########.fr       */
+/*   Created: 2019/09/20 04:33:59 by medesmon          #+#    #+#             */
+/*   Updated: 2019/09/20 04:43:16 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_ltoa(long n)
+char	*ft_ltoa(long n)
 {
 	char			*mem;
 	unsigned int	len;

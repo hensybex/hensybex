@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/21 18:47:40 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/08 16:22:01 by medesmon         ###   ########.fr       */
+/*   Created: 2019/09/20 03:34:49 by medesmon          #+#    #+#             */
+/*   Updated: 2019/09/20 19:36:40 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,27 @@ typedef struct	s_params
 	int			fl;
 }				t_params;
 
+typedef struct	s_str
+{
+	char		*sval;
+	char		*xval;
+	int			por;
+}				t_str;
+
+typedef struct	s_fl
+{
+	int			fl1;
+	int			fl2;
+	int			fl_pres;
+}				t_fl;
+
 void			initialize(t_params *p);
 int				symbol_parser(t_params *p);
 void			parser(t_params *p);
-void			parse_width_pres_persent(t_params *p);
+void			parser_2(t_params *p);
+void			parse_width(t_params *p);
+void			parse_pres(t_params *p);
+void			parse_percent(t_params *p);
 void			parse_flags(t_params *p);
 void			parse_csp(t_params *p);
 void			parse_symbol(t_params *p);
@@ -62,14 +79,22 @@ int				apply_width(int width, int num, int zero);
 int				apply_pres(int pres, int num);
 int				apply_pres_16(int pres, int num);
 void			parse_modifiers(t_params *p);
-int				apply_width_long_long(int width, unsigned long long num, int zero);
-int 			apply_width_long(int width, long long num, int zero);
+int				apply_width_long_long(int width, unsigned
+long long num, int zero);
+int				apply_width_long(int width, long long num, int zero);
 int				apply_width_16(int width, unsigned long long num, int zero);
 int				apply_width_8(int width, unsigned long long num, int zero);
 double			ft_calc_modulo(double nb, int *size);
-void			ft_handle_integer(double *nb, char **str, int *i, double modulo);
-void			ft_handle_decimals(char **str, int *i, double nb, int precision);
+void			ft_handle_integer(double *nb, char
+**str, int *i, double modulo);
+void			ft_handle_decimals(char **str, int *i,
+double nb, int precision);
 int				ft_put_float_to_string(double nb, char **s, int precision);
 void			parse_f(t_params *p);
+void			apply_mod_int(t_params *p, long long int *ival);
+void			apply_mod_uns(t_params *p, unsigned long long int *ival);
+int				ret_o(t_params *p, unsigned long long int ival);
+int				ret_hex_upper(t_params *p, unsigned long long ival);
+int				ret_hex(t_params *p, unsigned long long ival);
 
 #endif

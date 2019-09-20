@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/17 14:32:46 by medesmon          #+#    #+#             */
-/*   Updated: 2019/08/27 20:54:59 by medesmon         ###   ########.fr       */
+/*   Created: 2019/09/20 04:33:03 by medesmon          #+#    #+#             */
+/*   Updated: 2019/09/20 04:43:04 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ char		*ft_itoa(unsigned long long int n)
 
 	if (!(len = ft_count_num_long_long(n)))
 		return (ft_strdup("0"));
-	//if (n < 0)
-	//	neg = -n;
-	//else
-		neg = n;
+	neg = n;
 	if (!(mem = ft_strnew(len)))
 		return (NULL);
 	while (neg)
@@ -32,7 +29,5 @@ char		*ft_itoa(unsigned long long int n)
 		neg /= 10;
 		len--;
 	}
-	//if (n < 0)
-	//	mem[0] = '-';
 	return (mem);
 }
