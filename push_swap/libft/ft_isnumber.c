@@ -6,13 +6,13 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 04:46:38 by medesmon          #+#    #+#             */
-/*   Updated: 2019/08/11 04:51:18 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/20 06:26:39 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     ft_isnumber(char *str)
+int	ft_isnumber(char *str)
 {
 	int i;
 
