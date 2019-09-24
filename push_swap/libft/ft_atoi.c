@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: medesmon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/13 02:23:28 by medesmon          #+#    #+#             */
-/*   Updated: 2019/01/20 19:47:21 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/24 20:16:24 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static int	isspace(int c)
 
 int			ft_atoi(const char *str)
 {
-	long	num;
-	long	isneg;
-	long	temp;
+	int	num;
+	int	isneg;
+	int	temp;
 
 	isneg = 1;
 	num = 0;

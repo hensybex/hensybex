@@ -6,7 +6,7 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 21:25:28 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/24 18:16:24 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/24 20:41:07 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ int main(int argc, char **argv)
 	int		i;
 	char	**line;
 	int		k;
+	int		fl;
 
 	stack1.size = 0;
 	stack2.size = 0;
 	stack2.stack_num = 2;
 	stack1.stack_num = 1;
 	i = 0;
-	ft_putendl("ERROR");
 	if (argc < 2)
 	{
 		ft_putendl("Error");
@@ -39,9 +39,10 @@ int main(int argc, char **argv)
 		i = 0;
 		while (line[i] != NULL)
 		{
-			if (!ft_isnumber(line[i]))
+			if (!(ft_isnumber(line[i]) || (line[i][0] == '-' && ft_strcmp("-", line[i]) != 0)))
 				return (end());
-			//ft_putendl(line[i]);
+			if ((ft_atoi(line[i]) == -1 && ft_strcmp("-1", line[i]) != 0) || (ft_atoi(line[i]) == 0 && ft_strcmp("0", line[i]) != 0))
+				return (end());
 			push_rev(&stack1, ft_atoi(line[i]));
 			i++;
 		}
@@ -51,14 +52,34 @@ int main(int argc, char **argv)
 		i = 1;
 		while (argv[i])
 		{
-			if (!ft_isnumber(argv[i]))
+			if (!(ft_isnumber(argv[i]) || (argv[i][0] == '-' && ft_strcmp("-", argv[i]) != 0)))
 				return (end());
 			push_rev(&stack1, ft_atoi(argv[i]));
 			i++;
 		}
 	}
+
+	//check_minus
+
+
+	//check_sorted
 	i = 0;
-	while (i < stack1.size - 2)
+	fl = 0;
+	while (i < stack1.size - 1)
+	{
+		if (stack1.data[i] > stack1.data[i + 1])
+			i++;
+		else
+		{
+			fl = 1;
+			i++;
+		}
+	}
+	if (fl == 0)
+		return (0);
+	//check_duplicate
+	i = 0;
+	while (i < stack1.size)
 	{
 		k = 0;
 		while (k < i)

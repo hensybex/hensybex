@@ -6,7 +6,7 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 06:21:30 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/24 18:13:07 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/24 21:10:21 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int main(int argc, char **argv)
 	int		k;
 	Stack_t	stack1;
 	Stack_t	stack2;
+	int		fl;
 
 	stack1.size = 0;
 	stack2.size = 0;
@@ -66,36 +67,35 @@ int main(int argc, char **argv)
 	line = 0;
 	//цифры
 	if (argc < 2)
-	{
-		ft_putendl("Error");
 		return (0);
-	}
 	if (argc == 2)
 	{
 		line_1 = ft_strsplit(argv[1], ' ');
 		i = 0;
 		while (line_1[i] != NULL)
 		{
-			if (!ft_isnumber(line_1[i]))
+			if (!(ft_isnumber(line_1[i]) || (line_1[i][0] == '-' && ft_strcmp("-", line_1[i]) != 0)))
+				return (end());
+			if ((ft_atoi(line_1[i]) == -1 && ft_strcmp("-1", line_1[i]) != 0) || (ft_atoi(line_1[i]) == 0 && ft_strcmp("0", line_1[i]) != 0))
 				return (end());
 			push_rev(&stack1, ft_atoi(line_1[i]));
 			i++;
 		}
-		i = stack1.size + 1;
 	}
 	else
 	{
 		i = 1;
 		while (argv[i])
 		{
-			if (!ft_isnumber(argv[i]))
+			if (!ft_isnumber(argv[i]) || (argv[i][0] == '-' && ft_strcmp("-", argv[i]) == 0))
 				return (end());
 			push_rev(&stack1, ft_atoi(argv[i]));
 			i++;
 		}
 	}
+	//check_duplicate
 	i = 0;
-	while (i < stack1.size - 1)
+	while (i < stack1.size)
 	{
 		k = 0;
 		while (k < i)
@@ -106,6 +106,7 @@ int main(int argc, char **argv)
 		}
 		i++;
 	}
+	i = stack1.size - 1;
 	//операции
 	while (get_next_line(0, &line))
 	{
@@ -142,7 +143,8 @@ int main(int argc, char **argv)
 		free(line);
 	}
 	//проверка
-	if (i - 1 != stack1.size)
+	//КОСТЯЖИВИ
+	if (stack2.size != 0)
 		return (ko());
 	while (i > 1)
 	{

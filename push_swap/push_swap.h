@@ -6,14 +6,16 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 04:43:18 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/24 17:55:37 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/24 19:18:42 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# define STACK_MAX_SIZE 100000000
+# define MAX_INT 2147483647
+# define MIN_INT -2147483648
+# define STACK_MAX_SIZE 10000
 # define FD_MAX_NUM 4864
 # define STACK_OVERFLOW  -100
 # define STACK_UNDERFLOW -101

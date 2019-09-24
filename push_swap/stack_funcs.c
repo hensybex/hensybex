@@ -6,7 +6,7 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 17:01:07 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/20 22:58:04 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/24 21:08:13 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ void	push_rev(Stack_t *stack, const int value)
 
 int		pop(Stack_t *stack)
 {
-	if (stack->size == 0)
-		exit(STACK_UNDERFLOW);
 	stack->size--;
 	return (stack->data[stack->size]);
 }
@@ -73,8 +71,6 @@ int		pop_n(Stack_t *stack, int n)
 
 int	peek(Stack_t *stack)
 {
-	if (stack->size <= 0)
-		exit(STACK_UNDERFLOW);
 	return stack->data[stack->size - 1];
 }
  
