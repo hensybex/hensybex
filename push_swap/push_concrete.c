@@ -6,13 +6,19 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 18:46:51 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/23 21:57:15 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/24 15:35:42 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "push_swap.h"
 #include <stdarg.h>
+
+int		end()
+{
+	ft_putendl("Error");
+	return (0);
+}
 
 void	push_concrete(Stack_t *stack1, Stack_t *stack2, int i)
 {
@@ -22,16 +28,16 @@ void	push_concrete(Stack_t *stack1, Stack_t *stack2, int i)
 	if (i <= stack1->size / 2)
 	{
 		while (k++ < i)
-			rra(stack1);
+			rra(stack1, 1);
 	}
 	else
 	{
 		while (k++ < stack1->size - i)
 		{
-			ra(stack1);
+			ra(stack1, 1);
 		}
 	}
-	pa(stack1, stack2);
+	pa(stack1, stack2, 1);
 }
 
 int		count_out(Stack_t *stack1, int i)
@@ -140,9 +146,9 @@ void	push_final(Stack_t *stack1, Stack_t *stack2, int i)
 		while (ft_abs(len_out) > 0 && ft_abs(len_in) > 0)
 		{
 			if (len_out > 0)
-				rr(stack1, stack2);
+				rr(stack1, stack2, 1);
 			else
-				rrr(stack1, stack2);
+				rrr(stack1, stack2, 1);
 			if (len_out > 0)
 			{
 				len_out--;
@@ -158,35 +164,35 @@ void	push_final(Stack_t *stack1, Stack_t *stack2, int i)
 		{
 			if (len_out > 0)
 				while (len_out-- > 0)
-					rb(stack1);
+					rb(stack1, 1);
 			else
 				while (len_out++ < 0)
-					rrb(stack1);
+					rrb(stack1, 1);
 		}
 		else
 		{
 			if (len_in > 0)
 				while (len_in-- > 0)
-					ra(stack2);
+					ra(stack2, 1);
 			else
 				while (len_in++ < 0)
-					rra(stack2);
+					rra(stack2, 1);
 		}
 	}
 	else
 	{
 		if (len_out > 0)
 			while (len_out-- > 0)
-				rb(stack1);
+				rb(stack1, 1);
 		else
 			while (len_out++ < 0)
-				rrb(stack1);
+				rrb(stack1, 1);
 		if (len_in > 0)
 			while (len_in-- > 0)
-				ra(stack2);
+				ra(stack2, 1);
 		else
 			while (len_in++ < 0)
-				rra(stack2);
+				rra(stack2, 1);
 	}
-	pb(stack1, stack2);
+	pb(stack1, stack2, 1);
 }

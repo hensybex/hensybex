@@ -6,7 +6,7 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 18:26:52 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/23 22:06:00 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/24 18:16:13 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,8 @@ void	push_3_elems(Stack_t *stack1, Stack_t *stack2, t_duo duo)
 
 void	sort_3(Stack_t *stack1, t_duo duo)
 {
-	if (stack1->data[2] == duo.min && stack1->data[1] == duo.max)
-		ra(stack1);
-	
-	else if (stack1->data[1] == duo.min && stack1->data[0] == duo.max)
-		sa(stack1);
-	else if (stack1->data[2] == duo.max && stack1->data[1] == duo.min)
-		rra(stack1);
+	if ((stack1->data[0] == duo.min && stack1->data[2] == duo.max) || (stack1->data[1] == duo.min && stack1->data[0] == duo.max) || (stack1->data[2] == duo.min && stack1->data[1] == duo.max))
+		sa(stack1, 1);
 }
 
 void    push_back(Stack_t *stack2, Stack_t *stack1)
@@ -115,10 +110,10 @@ void	sort_final(Stack_t *stack1, Stack_t *stack2, t_duo duo)
 	}
 	if (position <= stack1->size / 2)
 		while(stack1->data[0] != duo.max)
-			rra(stack1);
+			rra(stack1, 1);
 	else
 		while(stack1->data[0] != duo.max)
-			ra(stack1);
+			ra(stack1, 1);
 }
 
 void	push_swap(Stack_t *stack1, Stack_t *stack2)

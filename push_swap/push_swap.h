@@ -6,14 +6,14 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 04:43:18 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/23 20:13:42 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/24 17:55:37 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# define STACK_MAX_SIZE 300
+# define STACK_MAX_SIZE 100000000
 # define FD_MAX_NUM 4864
 # define STACK_OVERFLOW  -100
 # define STACK_UNDERFLOW -101
@@ -48,18 +48,18 @@ int		pop_n(Stack_t *stack, int n);
 int		peek(Stack_t *stack);
 void	print_stack(Stack_t *stack);
 
-void    sa(Stack_t *stack);
-void    sb(Stack_t *stack);
-void	ss(Stack_t *stack1, Stack_t *stack2);
-void    pa(Stack_t *stack_from, Stack_t *stack_into);
-void    pb(Stack_t *stack_from, Stack_t *stack_into);
-void    ra(Stack_t *stack);
-void    rb(Stack_t *stack);
-void    rr(Stack_t *stack1, Stack_t *stack2);
-void    rra(Stack_t *stack);
-void    rra(Stack_t *stack);
-void    rrb(Stack_t *stack);
-void    rrr(Stack_t *stack1, Stack_t *stack2);
+void    sa(Stack_t *stack, int t);
+void    sb(Stack_t *stack, int t);
+void	ss(Stack_t *stack1, Stack_t *stack2, int t);
+void    pa(Stack_t *stack_from, Stack_t *stack_into, int t);
+void    pb(Stack_t *stack_from, Stack_t *stack_into, int t);
+void    ra(Stack_t *stack, int t);
+void    rb(Stack_t *stack, int t);
+void    rr(Stack_t *stack1, Stack_t *stack2, int t);
+void    rra(Stack_t *stack, int t);
+void    rra(Stack_t *stack, int t);
+void    rrb(Stack_t *stack, int t);
+void    rrr(Stack_t *stack1, Stack_t *stack2, int t);
 void    push_swap(Stack_t *stack1, Stack_t *stack2);
 void    push_concrete(Stack_t *stack1, Stack_t *stack2, int i);
 int     count_concrete(Stack_t *stack1, Stack_t *stack2, int i);

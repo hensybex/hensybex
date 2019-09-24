@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: medesmon <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/25 23:47:23 by medesmon          #+#    #+#              #
-#    Updated: 2019/02/06 05:56:58 by medesmon         ###   ########.fr        #
+#    Updated: 2019/09/24 13:54:58 by medesmon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ FILES = ft_atoi.c ft_lstnew.c ft_strcat.c ft_strncpy.c ft_bzero.c \
 	   	ft_putendl_fd.c ft_strlen.c ft_lstdel.c ft_putnbr.c ft_strmap.c \
 		ft_lstdelone.c ft_putnbr_fd.c ft_strmapi.c ft_strncmp.c \
 		ft_putstr_fd.c ft_lstmap.c ft_lstiter.c ft_putstr.c ft_strncat.c \
-		ft_strclen.c ft_strdel1join.c
+		ft_strclen.c ft_strdel1join.c ft_isnumber.c ft_abs.c
 OBJ = ft_atoi.o ft_lstnew.o ft_strcat.o ft_strncpy.o ft_bzero.o \
 	  ft_memalloc.o ft_strchr.o ft_strnequ.o ft_capitalize.o ft_memccpy.o \
 	  ft_strclr.o ft_strnew.o ft_count_num.o ft_memchr.o ft_strcmp.o \
@@ -39,7 +39,7 @@ OBJ = ft_atoi.o ft_lstnew.o ft_strcat.o ft_strncpy.o ft_bzero.o \
 	  ft_putendl_fd.o ft_strlen.o ft_lstdel.o ft_putnbr.o ft_strmap.o \
 	  ft_lstdelone.o ft_putnbr_fd.o ft_strmapi.o ft_strncmp.o \
 	  ft_putstr_fd.o ft_lstmap.o ft_lstiter.o ft_putstr.o ft_strncat.o \
-	  ft_strclen.o ft_strdel1join.o
+	  ft_strclen.o ft_strdel1join.o ft_isnumber.o ft_abs.o
 RM = rm -f
 all: $(NAME)
 

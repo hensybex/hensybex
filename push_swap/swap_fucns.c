@@ -1,27 +1,29 @@
 #include "libft/includes/libft.h"
 #include "push_swap.h"
 
-void	sa(Stack_t *stack)
+void	sa(Stack_t *stack, int t)
 {
 	int	temp;
 
 	temp = stack->data[stack->size - 1];
 	stack->data[stack->size - 1] = stack->data[stack->size - 2];
 	stack->data[stack->size - 2] = temp;
-	ft_putendl("sa");
+	if (t == 1)
+		ft_putendl("sa");
 }
 
-void	sb(Stack_t *stack)
+void	sb(Stack_t *stack, int t)
 {
 	int	temp;
 
 	temp = stack->data[stack->size - 1];
 	stack->data[stack->size - 1] = stack->data[stack->size - 2];
 	stack->data[stack->size - 2] = temp;
-	ft_putendl("sb");
+	if (t == 1)
+		ft_putendl("sb");
 }
 
-void	ss(Stack_t *stack1, Stack_t *stack2)
+void	ss(Stack_t *stack1, Stack_t *stack2, int t)
 {
 	int	temp;
 
@@ -31,10 +33,11 @@ void	ss(Stack_t *stack1, Stack_t *stack2)
 	temp = stack2->data[stack2->size - 1];
 	stack2->data[stack2->size - 1] = stack2->data[stack2->size - 2];
 	stack2->data[stack2->size - 2] = temp;
-	ft_putendl("ss");
+	if (t == 1)
+		ft_putendl("ss");
 }
 
-void	pa(Stack_t *stack_from, Stack_t *stack_into)
+void	pa(Stack_t *stack_from, Stack_t *stack_into, int t)
 {
 	int	temp;
 
@@ -44,10 +47,11 @@ void	pa(Stack_t *stack_from, Stack_t *stack_into)
 		push(stack_into, temp);
 		pop(stack_from);
 	}
-	ft_putendl("pa");
+	if (t == 1)
+		ft_putendl("pa");
 }
 
-void	pb(Stack_t *stack_from, Stack_t *stack_into)
+void	pb(Stack_t *stack_from, Stack_t *stack_into, int t)
 {
 	int	temp;
 
@@ -57,10 +61,11 @@ void	pb(Stack_t *stack_from, Stack_t *stack_into)
 		push(stack_into, temp);
 		pop(stack_from);
 	}
-	ft_putendl("pb");
+	if (t == 1)
+		ft_putendl("pb");
 }
 
-void	rra(Stack_t *stack)
+void	rra(Stack_t *stack, int t)
 {
 	int	temp1;
 	int	temp2;
@@ -76,10 +81,11 @@ void	rra(Stack_t *stack)
 		i++;
 	}
 	stack->data[stack->size - 1] = temp2;
-	ft_putendl("rra");
+	if (t == 1)
+		ft_putendl("rra");
 }
 
-void	rrb(Stack_t *stack)
+void	rrb(Stack_t *stack, int t)
 {
 	int	temp1;
 	int	temp2;
@@ -95,10 +101,11 @@ void	rrb(Stack_t *stack)
 		i++;
 	}
 	stack->data[stack->size - 1] = temp2;
-	ft_putendl("rrb");
+	if (t == 1)
+		ft_putendl("rrb");
 }
 
-void	rrr(Stack_t *stack1, Stack_t *stack2)
+void	rrr(Stack_t *stack1, Stack_t *stack2, int t)
 {
 	int	temp1;
 	int	temp2;
@@ -124,10 +131,11 @@ void	rrr(Stack_t *stack1, Stack_t *stack2)
 		i++;
 	}
 	stack2->data[stack2->size - 1] = temp2;
-	ft_putendl("rrr");
+	if (t == 1)
+		ft_putendl("rrr");
 }
 
-void	ra(Stack_t *stack)
+void	ra(Stack_t *stack, int t)
 {
 	int	temp1;
 	int	temp2;
@@ -143,10 +151,11 @@ void	ra(Stack_t *stack)
 		i--;
 	}
 	stack->data[0] = temp2;
-	ft_putendl("ra");
+	if (t == 1)
+		ft_putendl("ra");
 }
 
-void	rb(Stack_t *stack)
+void	rb(Stack_t *stack, int t)
 {
 	int	temp1;
 	int	temp2;
@@ -162,10 +171,11 @@ void	rb(Stack_t *stack)
 		i--;
 	}
 	stack->data[0] = temp2;
-	ft_putendl("rb");
+	if (t == 1)
+		ft_putendl("rb");
 }
 
-void	rr(Stack_t *stack1, Stack_t *stack2)
+void	rr(Stack_t *stack1, Stack_t *stack2, int t)
 {
 	int	temp1;
 	int	temp2;
@@ -191,5 +201,6 @@ void	rr(Stack_t *stack1, Stack_t *stack2)
 		i--;
 	}
 	stack2->data[0] = temp2;
-	ft_putendl("rr");
+	if (t == 1)
+		ft_putendl("rr");
 }
