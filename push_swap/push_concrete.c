@@ -6,7 +6,7 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 18:46:51 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/24 15:35:42 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/24 22:09:16 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	push_concrete(Stack_t *stack1, Stack_t *stack2, int i)
 			ra(stack1, 1);
 		}
 	}
-	pa(stack1, stack2, 1);
+	pb(stack1, stack2, 1);
 }
 
 int		count_out(Stack_t *stack1, int i)
@@ -194,5 +194,5 @@ void	push_final(Stack_t *stack1, Stack_t *stack2, int i)
 			while (len_in++ < 0)
 				rra(stack2, 1);
 	}
-	pb(stack1, stack2, 1);
+	pa(stack1, stack2, 1);
 }

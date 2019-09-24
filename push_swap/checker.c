@@ -6,7 +6,7 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 06:21:30 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/24 21:10:21 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/24 22:09:29 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,9 +123,9 @@ int main(int argc, char **argv)
 		else if (ft_strcmp(line, "ss") == 0)
 			ss(&stack1, &stack2, 0);
 		else if (ft_strcmp(line, "pa") == 0)
-			pa(&stack1, &stack2, 0);
+			pa(&stack2, &stack1, 0);
 		else if (ft_strcmp(line, "pb") == 0)
-			pb(&stack2, &stack1, 0);
+			pb(&stack1, &stack2, 0);
 		else if (ft_strcmp(line, "ra") == 0)
 			ra(&stack1, 0);
 		else if (ft_strcmp(line, "rb") == 0)
