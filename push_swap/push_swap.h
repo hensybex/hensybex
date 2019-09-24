@@ -6,7 +6,7 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 04:43:18 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/24 19:18:42 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/24 22:18:26 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,18 @@ int		pop_n(Stack_t *stack, int n);
 int		peek(Stack_t *stack);
 void	print_stack(Stack_t *stack);
 
-void    sa(Stack_t *stack, int t);
-void    sb(Stack_t *stack, int t);
-void	ss(Stack_t *stack1, Stack_t *stack2, int t);
-void    pa(Stack_t *stack_from, Stack_t *stack_into, int t);
-void    pb(Stack_t *stack_from, Stack_t *stack_into, int t);
-void    ra(Stack_t *stack, int t);
-void    rb(Stack_t *stack, int t);
-void    rr(Stack_t *stack1, Stack_t *stack2, int t);
-void    rra(Stack_t *stack, int t);
-void    rra(Stack_t *stack, int t);
-void    rrb(Stack_t *stack, int t);
-void    rrr(Stack_t *stack1, Stack_t *stack2, int t);
+int		sa(Stack_t *stack, int t);
+int		sb(Stack_t *stack, int t);
+int		ss(Stack_t *stack1, Stack_t *stack2, int t);
+int		pa(Stack_t *stack_from, Stack_t *stack_into, int t);
+int		pb(Stack_t *stack_from, Stack_t *stack_into, int t);
+int		ra(Stack_t *stack, int t);
+int		rb(Stack_t *stack, int t);
+int		rr(Stack_t *stack1, Stack_t *stack2, int t);
+int		rra(Stack_t *stack, int t);
+int		rra(Stack_t *stack, int t);
+int		rrb(Stack_t *stack, int t);
+int		rrr(Stack_t *stack1, Stack_t *stack2, int t);
 void    push_swap(Stack_t *stack1, Stack_t *stack2);
 void    push_concrete(Stack_t *stack1, Stack_t *stack2, int i);
 int     count_concrete(Stack_t *stack1, Stack_t *stack2, int i);

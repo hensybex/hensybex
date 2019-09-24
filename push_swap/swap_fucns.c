@@ -1,32 +1,40 @@
 #include "libft/includes/libft.h"
 #include "push_swap.h"
 
-void	sa(Stack_t *stack, int t)
+int	sa(Stack_t *stack, int t)
 {
 	int	temp;
 
+	if (stack->size == 0)
+		return (end());
 	temp = stack->data[stack->size - 1];
 	stack->data[stack->size - 1] = stack->data[stack->size - 2];
 	stack->data[stack->size - 2] = temp;
 	if (t == 1)
 		ft_putendl("sa");
+	return (0);
 }
 
-void	sb(Stack_t *stack, int t)
+int	sb(Stack_t *stack, int t)
 {
 	int	temp;
 
+	if (stack->size == 0)
+		return (end());
 	temp = stack->data[stack->size - 1];
 	stack->data[stack->size - 1] = stack->data[stack->size - 2];
 	stack->data[stack->size - 2] = temp;
 	if (t == 1)
 		ft_putendl("sb");
+	return (0);
 }
 
-void	ss(Stack_t *stack1, Stack_t *stack2, int t)
+int	ss(Stack_t *stack1, Stack_t *stack2, int t)
 {
 	int	temp;
 
+	if (stack1->size == 0 || stack2->size == 0)
+		return (end());
 	temp = stack1->data[stack1->size - 1];
 	stack1->data[stack1->size - 1] = stack1->data[stack1->size - 2];
 	stack1->data[stack1->size - 2] = temp;
@@ -35,12 +43,15 @@ void	ss(Stack_t *stack1, Stack_t *stack2, int t)
 	stack2->data[stack2->size - 2] = temp;
 	if (t == 1)
 		ft_putendl("ss");
+	return (0);
 }
 
-void	pa(Stack_t *stack_from, Stack_t *stack_into, int t)
+int	pa(Stack_t *stack_from, Stack_t *stack_into, int t)
 {
 	int	temp;
 
+	if (stack_from->size == 0)
+		return (end());
 	if (stack_from->size != 0)
 	{
 		temp = stack_from->data[stack_from->size - 1];
@@ -49,12 +60,15 @@ void	pa(Stack_t *stack_from, Stack_t *stack_into, int t)
 	}
 	if (t == 1)
 		ft_putendl("pa");
+	return (0);
 }
 
-void	pb(Stack_t *stack_from, Stack_t *stack_into, int t)
+int	pb(Stack_t *stack_from, Stack_t *stack_into, int t)
 {
 	int	temp;
 
+	if (stack_from->size == 0)
+		return (end());
 	if (stack_from->size != 0)
 	{
 		temp = stack_from->data[stack_from->size - 1];
@@ -63,14 +77,17 @@ void	pb(Stack_t *stack_from, Stack_t *stack_into, int t)
 	}
 	if (t == 1)
 		ft_putendl("pb");
+	return (0);
 }
 
-void	rra(Stack_t *stack, int t)
+int	rra(Stack_t *stack, int t)
 {
 	int	temp1;
 	int	temp2;
 	int	i;
 
+	if (stack->size == 0)
+		return (end());
 	i = 0;
 	temp2 = stack->data[0];
 	while (i < stack->size - 1)
@@ -83,14 +100,17 @@ void	rra(Stack_t *stack, int t)
 	stack->data[stack->size - 1] = temp2;
 	if (t == 1)
 		ft_putendl("rra");
+	return (0);
 }
 
-void	rrb(Stack_t *stack, int t)
+int	rrb(Stack_t *stack, int t)
 {
 	int	temp1;
 	int	temp2;
 	int	i;
 
+	if (stack->size == 0)
+		return (end());
 	i = 0;
 	temp2 = stack->data[0];
 	while (i < stack->size - 1)
@@ -103,14 +123,17 @@ void	rrb(Stack_t *stack, int t)
 	stack->data[stack->size - 1] = temp2;
 	if (t == 1)
 		ft_putendl("rrb");
+	return (0);
 }
 
-void	rrr(Stack_t *stack1, Stack_t *stack2, int t)
+int	rrr(Stack_t *stack1, Stack_t *stack2, int t)
 {
 	int	temp1;
 	int	temp2;
 	int	i;
 
+	if (stack1->size == 0 || stack2->size == 0)
+		return (end());
 	i = 0;
 	temp2 = stack1->data[0];
 	while (i < stack1->size - 1)
@@ -133,14 +156,17 @@ void	rrr(Stack_t *stack1, Stack_t *stack2, int t)
 	stack2->data[stack2->size - 1] = temp2;
 	if (t == 1)
 		ft_putendl("rrr");
+	return (0);
 }
 
-void	ra(Stack_t *stack, int t)
+int	ra(Stack_t *stack, int t)
 {
 	int	temp1;
 	int	temp2;
 	int	i;
 
+	if (stack->size == 0)
+		return (end());
 	i = stack->size - 1;
 	temp2 = stack->data[stack->size - 1];
 	while (i > 0)
@@ -153,14 +179,17 @@ void	ra(Stack_t *stack, int t)
 	stack->data[0] = temp2;
 	if (t == 1)
 		ft_putendl("ra");
+	return (0);
 }
 
-void	rb(Stack_t *stack, int t)
+int	rb(Stack_t *stack, int t)
 {
 	int	temp1;
 	int	temp2;
 	int	i;
 
+	if (stack->size == 0)
+		return (end());
 	i = stack->size - 1;
 	temp2 = stack->data[stack->size - 1];
 	while (i > 0)
@@ -173,14 +202,17 @@ void	rb(Stack_t *stack, int t)
 	stack->data[0] = temp2;
 	if (t == 1)
 		ft_putendl("rb");
+	return (0);
 }
 
-void	rr(Stack_t *stack1, Stack_t *stack2, int t)
+int	rr(Stack_t *stack1, Stack_t *stack2, int t)
 {
 	int	temp1;
 	int	temp2;
 	int	i;
 
+	if (stack1->size == 0 || stack2->size == 0)
+		return (end());
 	i = stack1->size - 1;
 	temp2 = stack1->data[stack1->size - 1];
 	while (i > 0)
@@ -203,4 +235,5 @@ void	rr(Stack_t *stack1, Stack_t *stack2, int t)
 	stack2->data[0] = temp2;
 	if (t == 1)
 		ft_putendl("rr");
+	return (0);
 }
