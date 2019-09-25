@@ -3,44 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   letter_s.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgilwood <bgilwood@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 02:24:36 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/20 19:40:29 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/25 23:40:05 by bgilwood         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "ft_printf.h"
-#include <stdarg.h>
 
-void	print_str(t_params *p, t_str *str, int *i)
+void	print_str(t_params *p, t_str *str)
 {
 	ft_putchar(*str->sval);
 	str->sval++;
 	p->len++;
-	(*i)++;
 }
 
-void	parse_string_3(t_params *p, t_str str, int *i)
+void	parse_string_3(t_params *p, t_str str, int i)
 {
-	if (str.xval != NULL)
+	if (str.sval != NULL)
 	{
 		if (p->pres)
 			while (*str.sval && p->pres--)
-				print_str(p, &str, i);
+				print_str(p, &str);
 		else
 			while (*str.sval)
-				print_str(p, &str, i);
+				print_str(p, &str);
 	}
 	else
 	{
 		ft_putstr("(null)");
 		p->len += 6;
 	}
-	if (p->width != 0 && str.xval != NULL)
+	if (p->width != 0 && str.sval != NULL)
 	{
-		if ((*i) - p->pres > 0 && p->pres > 0)
+		if ((i) - p->pres > 0 && p->pres > 0)
 			p->len += apply_width(p->width - ft_count_num(str.por)
 			- p->pres + 1, str.por, p->zero);
 		else
@@ -48,24 +46,24 @@ void	parse_string_3(t_params *p, t_str str, int *i)
 	}
 }
 
-void	parse_string_2(t_params *p, t_str str, int *i)
+void	parse_string_2(t_params *p, t_str str, int i)
 {
-	if (p->width != 0 && str.xval != NULL)
+	if (p->width != 0 && str.sval != NULL)
 	{
-		if (*i - p->pres > 0 && p->pres > 0)
+		if (i - p->pres > 0 && p->pres > 0)
 			p->len += apply_width(p->width - p->pres
 			+ ft_count_num(str.por) + 1, str.por, p->zero);
 		else
 			p->len += apply_width(p->width + 1, str.por, p->zero);
 	}
-	if (str.xval != NULL)
+	if (str.sval != NULL)
 	{
 		if (p->pres)
 			while (*str.sval && p->pres--)
-				print_str(p, &str, i);
+				print_str(p, &str);
 		else
 			while (*str.sval)
-				print_str(p, &str, i);
+				print_str(p, &str);
 	}
 	else
 	{
@@ -94,22 +92,17 @@ void	parse_string(t_params *p)
 	if (p->format[p->i] == 's')
 	{
 		str.sval = va_arg(p->ap, char *);
-		str.xval = str.sval;
 		if (ret(p))
 			return ;
-		if (str.xval != NULL)
-			while (*str.xval)
-			{
-				str.xval++;
-				i++;
-			}
+		if (str.sval != NULL)
+			i = (int)ft_strlen(str.sval);
 		if (i - p->pres > 0)
 			str.por = ft_power(i - p->pres);
 		else
 			str.por = ft_power(i);
 		if (p->left == 0)
-			parse_string_2(p, str, &i);
+			parse_string_2(p, str, i);
 		else
-			parse_string_3(p, str, &i);
+			parse_string_3(p, str, i);
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgilwood <bgilwood@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 03:34:49 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/20 19:36:40 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/25 23:32:49 by bgilwood         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ typedef struct	s_params
 typedef struct	s_str
 {
 	char		*sval;
-	char		*xval;
 	int			por;
 }				t_str;
 
