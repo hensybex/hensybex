@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/13 02:56:40 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/10 00:03:20 by medesmon         ###   ########.fr       */
+/*   Created: 2019/09/20 04:37:00 by medesmon          #+#    #+#             */
+/*   Updated: 2019/09/20 04:37:01 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+void	ft_putnbr(long long int n)
 {
 	ft_putnbr_fd(n, 1);
 }

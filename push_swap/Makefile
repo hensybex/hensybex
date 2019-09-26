@@ -6,7 +6,7 @@
 #    By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/27 12:36:50 by noobythetur       #+#    #+#              #
-#    Updated: 2019/09/24 13:54:19 by medesmon         ###   ########.fr        #
+#    Updated: 2019/09/26 20:51:41 by medesmon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ NAME_CH	= checker
 
 NAME_PS = push_swap
 
-SRC_CH	= stack_funcs.c swap_fucns.c get_next_line.c checker.c push_concrete.c
+SRC_CH	= stack_funcs.c swap_fucns.c get_next_line.c checker.c push_concrete.c input.c checks.c returns.c swap_funcs_2.c swap_funcs_3.c stack_funcs_2.c rotate_final_funcs.c push_swap_2.c
 
-SRC_PS	= push_concrete.c push_swap.c stack_funcs.c swap_fucns.c main.c
+SRC_PS	= push_concrete.c push_swap.c stack_funcs.c swap_fucns.c main.c input.c checks.c returns.c swap_funcs_2.c swap_funcs_3.c stack_funcs_2.c rotate_final_funcs.c push_swap_2.c
 
 FLAGS	= 
 

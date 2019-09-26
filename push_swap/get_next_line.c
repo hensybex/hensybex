@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: medesmon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 04:23:01 by medesmon          #+#    #+#             */
-/*   Updated: 2019/02/06 07:54:43 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/26 21:36:45 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include "./libft/includes/libft.h"
 
 static int	divide_tmp(char **line,
 		char *fd_lines[FD_MAX_NUM], char **tmp, int fd)

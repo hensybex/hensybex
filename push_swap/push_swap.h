@@ -6,7 +6,7 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 04:43:18 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/24 22:18:26 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/26 21:53:08 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,58 +20,86 @@
 # define STACK_OVERFLOW  -100
 # define STACK_UNDERFLOW -101
 
-# include "./libft/includes/libft.h"
+# include "./libft/libft.h"
 # include <stdarg.h>
 
-int checker(int argc, char **argv);
+int				checker(int argc, char **argv);
 
-typedef struct  duo
+typedef struct	s_duo
 {
-    int max;
-    int min;
-}               t_duo;
+	int			max;
+	int			min;
+}				t_duo;
 
-typedef struct  return_params
+typedef struct	s_return
 {
-    int     full_len;
-    int     position;
-}               t_return;
+	int			full_len;
+	int			position;
+}				t_return;
 
-typedef struct Stack {
-    int		data[STACK_MAX_SIZE];
-    size_t	size;
-	int		stack_num;
-} Stack_t;
+typedef struct	s_stack
+{
+	int			data[STACK_MAX_SIZE];
+	size_t		size;
+	int			stack_num;
+}				t_stack;
 
-void    push_n(Stack_t *stack, int number, ...);
-void	push(Stack_t *stack, int value);
-int		pop(Stack_t *stack);
-int		pop_n(Stack_t *stack, int n);
-int		peek(Stack_t *stack);
-void	print_stack(Stack_t *stack);
+typedef struct	s_params
+{
+	int			i;
+	char		**line;
+	int			k;
+	int			fl;
+	int			pos;
+	t_stack		stack1;
+	t_stack		stack2;
+}				t_params;
 
-int		sa(Stack_t *stack, int t);
-int		sb(Stack_t *stack, int t);
-int		ss(Stack_t *stack1, Stack_t *stack2, int t);
-int		pa(Stack_t *stack_from, Stack_t *stack_into, int t);
-int		pb(Stack_t *stack_from, Stack_t *stack_into, int t);
-int		ra(Stack_t *stack, int t);
-int		rb(Stack_t *stack, int t);
-int		rr(Stack_t *stack1, Stack_t *stack2, int t);
-int		rra(Stack_t *stack, int t);
-int		rra(Stack_t *stack, int t);
-int		rrb(Stack_t *stack, int t);
-int		rrr(Stack_t *stack1, Stack_t *stack2, int t);
-void    push_swap(Stack_t *stack1, Stack_t *stack2);
-void    push_concrete(Stack_t *stack1, Stack_t *stack2, int i);
-int     count_concrete(Stack_t *stack1, Stack_t *stack2, int i);
-void    push_final(Stack_t *stack1, Stack_t *stack2, int i);
-int     count_out(Stack_t *stack1, int i);
-t_duo   find_min_max(Stack_t *stack1);
-void    push_3_elems(Stack_t *stack1, Stack_t *stack2, t_duo duo);
-void	push_back(Stack_t *stack2, Stack_t *stack1);
-void	push_rev(Stack_t *stack, const int value);
-int		end();
-void	sort_3(Stack_t *stack1, t_duo duo);
+void			push_n(t_stack *stack, int number, ...);
+void			push(t_stack *stack, int value);
+int				pop(t_stack *stack);
+int				pop_n(t_stack *stack, int n);
+int				peek(t_stack *stack);
+void			print_stack(t_stack *stack);
+int				sa(t_stack *stack, int t);
+int				sb(t_stack *stack, int t);
+int				ss(t_stack *stack1, t_stack *stack2, int t);
+int				pa(t_stack *stack_from, t_stack *stack_into, int t);
+int				pb(t_stack *stack_from, t_stack *stack_into, int t);
+int				ra(t_stack *stack, int t);
+int				rb(t_stack *stack, int t);
+int				rr(t_stack *stack1, t_stack *stack2, int t);
+int				rra(t_stack *stack, int t);
+int				rra(t_stack *stack, int t);
+int				rrb(t_stack *stack, int t);
+int				rrr(t_stack *stack1, t_stack *stack2, int t);
+void			push_swap(t_stack *stack1, t_stack *stack2);
+void			push_concrete(t_stack *stack1, t_stack *stack2, int i);
+int				count_concrete(t_stack *stack1, t_stack *stack2, int i);
+void			push_final(t_stack *stack1, t_stack *stack2, int i);
+int				count_out(t_stack *stack1, int i);
+t_duo			find_min_max(t_stack *stack1);
+void			push_3_elems(t_stack *stack1, t_stack *stack2, t_duo duo);
+void			push_back(t_stack *stack2, t_stack *stack1);
+void			push_rev(t_stack *stack, const int value);
+void			sort_3(t_stack *stack1, t_duo duo);
+int				check_duplicate(t_stack stack);
+int				input_line(char **argv, t_stack **stack);
+int				input_lines(char **argv, t_stack **stack);
+int				check_commands(char *line, t_stack *stack1, t_stack *stack2);
+int				input(int argc, char **argv, t_stack *stack1);
+void			init(t_stack *stack1, t_stack *stack2);
+int				check_sorted(t_stack stack);
+int				print_ko(void);
+int				free_end(char **line);
+int				ko(t_stack stack1, t_stack stack2);
+int				end();
+void			rotate_both(int *len_in, int *len_out,
+t_stack *stack1, t_stack *stack2);
+void			rotate_one(int *len_in, int *len_out,
+t_stack *stack1, t_stack *stack2);
+void			rotate_one_alt(int *len_in, int *len_out,
+t_stack *stack1, t_stack *stack2);
+void			sort_final(t_stack *stack1, t_stack *stack2, t_duo duo);
 
 #endif

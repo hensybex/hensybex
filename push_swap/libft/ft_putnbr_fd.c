@@ -5,18 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/13 02:50:17 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/10 00:03:06 by medesmon         ###   ########.fr       */
+/*   Created: 2019/09/20 04:36:37 by medesmon          #+#    #+#             */
+/*   Updated: 2019/09/20 04:36:39 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(long long int n, int fd)
 {
-	if (n == -2147483648)
+	if (n == (-9223372036854775807 - 1))
 	{
-		ft_putstr_fd("-2147483648", fd);
+		ft_putstr_fd("-9223372036854775808", fd);
 		return ;
 	}
 	if (n < 0)

@@ -6,14 +6,14 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 18:26:52 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/24 18:16:13 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/26 23:27:01 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "push_swap.h"
 
-t_duo	find_min_max(Stack_t *stack1)
+t_duo	find_min_max(t_stack *stack1)
 {
 	t_duo	params;
 	int		i;
@@ -33,90 +33,49 @@ t_duo	find_min_max(Stack_t *stack1)
 	return (params);
 }
 
-void	push_3_elems(Stack_t *stack1, Stack_t *stack2, t_duo duo)
+void	choose_elems(t_params *p, t_duo duo, t_stack stack, int min)
 {
-	int	fl;
-	int	i;
-	int	min;
-	int	pos;
-	int	k;
+	if (p->fl == 0 && (stack.data[p->i] != duo.min
+	&& stack.data[p->i] != duo.max))
+		p->fl = stack.data[p->i];
+	else if (stack.data[p->i] != duo.min && stack.data[p->i]
+	!= duo.max && stack.data[p->i] != p->fl)
+	{
+		p->k = stack.size - p->i;
+		if (p->k < min)
+		{
+			p->pos = p->i + 1;
+			min = p->k;
+		}
+	}
+	p->i++;
+}
 
-	fl = 0;
+void	push_3_elems(t_stack *stack1, t_stack *stack2, t_duo duo)
+{
+	t_params	p;
+	int			min;
+
+	p.fl = 0;
 	while (stack1->size >= 4)
 	{
-		i = 0;
+		p.i = 0;
 		min = stack1->size;
-		while (i < stack1->size)
-		{
-			if (fl == 0 && (stack1->data[i] != duo.min && stack1->data[i] != duo.max))
-				fl = stack1->data[i];
-			else if (stack1->data[i] != duo.min && stack1->data[i] != duo.max && stack1->data[i] != fl)
-			{
-				k = stack1->size - i;
-				if (k < min)
-				{
-					pos = i + 1;
-					min = k;
-				}
-			}
-			i++;
-		}
-		push_concrete(stack1, stack2, pos);
+		while (p.i < stack1->size)
+			choose_elems(&p, duo, *stack1, min);
+		push_concrete(stack1, stack2, p.pos);
 	}
 }
 
-void	sort_3(Stack_t *stack1, t_duo duo)
+void	sort_3(t_stack *stack1, t_duo duo)
 {
-	if ((stack1->data[0] == duo.min && stack1->data[2] == duo.max) || (stack1->data[1] == duo.min && stack1->data[0] == duo.max) || (stack1->data[2] == duo.min && stack1->data[1] == duo.max))
+	if ((stack1->data[0] == duo.min && stack1->data[2] == duo.max)
+	|| (stack1->data[1] == duo.min && stack1->data[0] == duo.max) ||
+	(stack1->data[2] == duo.min && stack1->data[1] == duo.max))
 		sa(stack1, 1);
 }
 
-void    push_back(Stack_t *stack2, Stack_t *stack1)
-{
-	int i;
-	int min;
-	int k;
-	int position;
-
-	while(stack2->size)
-	{
-		i = 0;
-		min = stack2->size + stack1->size;
-		while (i < stack2->size)
-		{
-			k = count_concrete(stack2, stack1, i + 1);
-			if (k < min)
-			{
-				position = i + 1;
-				min = k;
-			}
-			i++;
-		}
-		push_final(stack2, stack1, position);
-	}
-}
-
-void	sort_final(Stack_t *stack1, Stack_t *stack2, t_duo duo)
-{
-	int i;
-	int position;
-
-	i = 0;
-	while(i < stack1->size)
-	{
-		if (stack1->data[i] == duo.max)
-			position = i;
-		i++;
-	}
-	if (position <= stack1->size / 2)
-		while(stack1->data[0] != duo.max)
-			rra(stack1, 1);
-	else
-		while(stack1->data[0] != duo.max)
-			ra(stack1, 1);
-}
-
-void	push_swap(Stack_t *stack1, Stack_t *stack2)
+void	push_swap(t_stack *stack1, t_stack *stack2)
 {
 	t_duo		duo;
 	int			mas[stack1->size];

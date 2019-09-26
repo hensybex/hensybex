@@ -5,17 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/10 18:26:19 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/10 18:27:37 by medesmon         ###   ########.fr       */
+/*   Created: 2019/09/26 23:11:01 by medesmon          #+#    #+#             */
+/*   Updated: 2019/09/26 23:14:52 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_abs(int  i)
+int	ft_abs(int i)
 {
-    if (i < 0)
-        return (-i);
-    else
-        return (i);
+	if (i < 0)
+		return (-i);
+	else
+		return (i);
 }

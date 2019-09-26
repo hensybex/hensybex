@@ -5,28 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/20 18:32:53 by medesmon          #+#    #+#             */
-/*   Updated: 2019/07/20 18:33:15 by medesmon         ###   ########.fr       */
+/*   Created: 2019/09/20 04:31:35 by medesmon          #+#    #+#             */
+/*   Updated: 2019/09/20 04:31:40 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long    ft_10_to_8_long(unsigned long long n)
+int	ft_10_to_8_long(unsigned long long n)
 {
-    long    num;
-    unsigned long long    tsel;
-    long    por;
+	int					*num;
+	unsigned long long	tsel;
+	long				por;
+	int					i;
 
-    num = 0;
-    tsel = n;
-    por = 1;
-    while (tsel > 1)
-    {
-        num = (tsel % 8 * por + num);
-        por = por * 10;
-        tsel = tsel / 8;
-    }
-    num = tsel * por + num;
-    return (num);
+	i = 0;
+	num = 0;
+	tsel = n;
+	por = 1;
+	while (tsel >= 1)
+	{
+		num = (tsel % 8 * por + num);
+		por = por * 10;
+		tsel = tsel / 8;
+		i++;
+	}
+	num = tsel * por + num;
+	return (i);
 }

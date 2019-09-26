@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/25 21:16:26 by medesmon          #+#    #+#             */
-/*   Updated: 2019/04/25 21:18:40 by medesmon         ###   ########.fr       */
+/*   Created: 2019/09/20 04:36:56 by medesmon          #+#    #+#             */
+/*   Updated: 2019/09/20 04:46:17 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_putnbr_uns(unsigned int n)
 		ft_putchar('0' + n);
 	else
 	{
-		ft_putnbr(n / 10);
+		ft_putnbr_uns(n / 10);
 		ft_putchar('0' + n % 10);
 	}
 }
