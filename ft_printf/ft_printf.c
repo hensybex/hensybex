@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgilwood <bgilwood@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 22:25:37 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/19 22:25:42 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/26 20:04:08 by bgilwood         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
-#include <stdio.h>
-#include <stdarg.h>
 
 int	ft_printf(char *fmt, ...)
 {

@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   letter_c.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgilwood <bgilwood@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 02:26:15 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/20 03:29:11 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/26 20:04:29 by bgilwood         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
-#include <stdarg.h>
 
 void	parse_symbol(t_params *p)
 {

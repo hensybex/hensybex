@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   apply_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgilwood <bgilwood@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 03:43:45 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/20 03:44:08 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/26 20:03:47 by bgilwood         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
-#include <stdio.h>
-#include <stdarg.h>
 
 int	apply_width_long_long(int width, unsigned long long num, int zero)
 {

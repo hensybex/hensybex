@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   letter_f.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgilwood <bgilwood@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 03:39:38 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/20 03:41:51 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/26 20:04:58 by bgilwood         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
-#include <stdarg.h>
-#include <stdio.h>
 
 double	ft_calc_modulo(double nb, int *size)
 {

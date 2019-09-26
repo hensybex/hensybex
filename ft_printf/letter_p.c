@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   letter_p.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgilwood <bgilwood@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 02:30:33 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/20 19:40:46 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/26 20:05:22 by bgilwood         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
-#include <stdarg.h>
 
 void	parse_pointer_2(t_params *p, t_fl fl, int *pval)
 {

@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   letter_x.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgilwood <bgilwood@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 04:07:21 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/20 04:48:43 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/26 20:06:38 by bgilwood         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
-#include <stdarg.h>
 
 void	parse_hex_2(t_params *p, unsigned long long ival)
 {

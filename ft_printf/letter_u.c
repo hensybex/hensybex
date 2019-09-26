@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   letter_u.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgilwood <bgilwood@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 22:26:19 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/20 04:51:42 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/26 20:05:47 by bgilwood         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
-#include <stdarg.h>
 
 int		ret_u(t_params *p, unsigned long long ival)
 {

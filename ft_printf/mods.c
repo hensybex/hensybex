@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   mods.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgilwood <bgilwood@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 02:37:52 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/20 04:50:19 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/26 20:06:47 by bgilwood         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
-#include <stdarg.h>
 
 void	apply_mod_int(t_params *p, long long int *ival)
 {

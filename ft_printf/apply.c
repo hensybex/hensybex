@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   apply.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgilwood <bgilwood@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 03:42:43 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/25 22:24:45 by bgilwood         ###   ########.fr       */
+/*   Updated: 2019/09/26 20:03:59 by bgilwood         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
-#include <stdio.h>
-#include <stdarg.h>
 
 int	apply_width(int width, int num, int zero)
 {

@@ -6,7 +6,7 @@
 /*   By: bgilwood <bgilwood@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 03:34:49 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/25 23:32:49 by bgilwood         ###   ########.fr       */
+/*   Updated: 2019/09/26 20:30:33 by bgilwood         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,10 @@
 # define BUFF_SIZE 100
 # define FD_MAX_NUM 4864
 
-# include "./libft/libft.h"
+# include "libft.h"
 # include <stdarg.h>
 
 int				ft_printf(char *format, ...);
-int				apply(int width, int num);
 
 typedef struct	s_params
 {
@@ -54,6 +53,7 @@ typedef struct	s_fl
 	int			fl_pres;
 }				t_fl;
 
+int				apply(int width, int num);
 void			initialize(t_params *p);
 int				symbol_parser(t_params *p);
 void			parser(t_params *p);

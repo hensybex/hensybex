@@ -6,11 +6,10 @@
 /*   By: bgilwood <bgilwood@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 02:24:36 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/25 23:40:05 by bgilwood         ###   ########.fr       */
+/*   Updated: 2019/09/26 20:05:30 by bgilwood         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
 
 void	print_str(t_params *p, t_str *str)

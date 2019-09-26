@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   letter-d-i.c                                       :+:      :+:    :+:   */
+/*   letter_d_i.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgilwood <bgilwood@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 02:31:51 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/20 03:29:54 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/26 20:04:40 by bgilwood         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
-#include <stdarg.h>
 
 int		ret_d_i(t_params *p, int ival)
 {

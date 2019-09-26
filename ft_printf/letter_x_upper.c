@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   letter_x_upper.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bgilwood <bgilwood@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 04:07:49 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/20 04:48:52 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/09/26 20:05:55 by bgilwood         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
-#include <stdarg.h>
 
 void	parse_hex_upper_2(t_params *p, unsigned long long ival)
 {
