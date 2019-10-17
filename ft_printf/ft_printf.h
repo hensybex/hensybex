@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgilwood <bgilwood@student.42.fr>          +#+  +:+       +#+        */
+/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 03:34:49 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/26 20:30:33 by bgilwood         ###   ########.fr       */
+/*   Updated: 2019/09/27 00:07:19 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define BUFF_SIZE 100
 # define FD_MAX_NUM 4864
 
-# include "libft.h"
+# include "./libft/libft.h"
 # include <stdarg.h>
 
 int				ft_printf(char *format, ...);

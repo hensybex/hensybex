@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   letter_f.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bgilwood <bgilwood@student.42.fr>          +#+  +:+       +#+        */
+/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 03:39:38 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/26 20:04:58 by bgilwood         ###   ########.fr       */
+/*   Updated: 2019/09/27 00:20:15 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 double	ft_calc_modulo(double nb, int *size)
 {
@@ -26,6 +27,7 @@ void	ft_handle_integer(double *nb, char **str, int *i, double modulo)
 {
 	char *s;
 
+	
 	s = *str;
 	while ((int)*nb != 0)
 	{
@@ -71,6 +73,7 @@ int		ft_put_float_to_string(double nb, char **s, int precision)
 	if (nb < 0 && size++ && (neg = 1) == 1)
 		nb = -nb;
 	modulo = ft_calc_modulo(nb, &size);
+	ft_putnbr(modulo);
 	size += precision;
 	if (!(str = malloc(sizeof(char) * (size + 1))))
 		return (0);

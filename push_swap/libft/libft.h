@@ -6,7 +6,7 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/25 23:01:51 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/26 23:12:40 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/10/17 16:33:07 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ size_t				ft_strlcat(char *dst, const char *src, size_t size);
 char				*ft_strdup(const char *src);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strchr(const char *str, int symbol);
-char				*ft_strcat(char *dst, const char *ptr);
+char				*ft_strcat(char *dst, char *ptr);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
@@ -67,8 +67,8 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
-char				*ft_itoa(unsigned long long int n);
-int					ft_count_num(long n);
+char				*ft_itoa(int n);
+int					ft_count_num(int n);
 int					ft_get_word_len(char const *str, char c);
 int					ft_countwords(char const *str, char c);
 char				*ft_strrev(char *str);
@@ -85,7 +85,7 @@ int					ft_10_to_8(long n);
 int					ft_10_to_16(unsigned int n);
 int					ft_10_to_8_long(unsigned long long n);
 int					ft_10_to_16_long(unsigned long long n);
-int					ft_count_num_long_long(unsigned long long n);
+int					ft_count_num_long_long(int n);
 int					ft_count_num_long(long long n);
 int					ft_count_num_16(unsigned int n);
 void				ft_putnbr_hex_long(unsigned long long n);

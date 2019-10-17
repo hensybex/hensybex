@@ -6,7 +6,7 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 06:21:30 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/26 22:59:15 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/10/17 17:46:35 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,16 @@ int	is_valid(char *line)
 		return (0);
 }
 
+int	is_valid_ret(char **line)
+{
+	if (!is_valid(*line))
+	{
+		free(*line);
+		return (0);
+	}
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	char	*line;
@@ -55,13 +65,13 @@ int	main(int argc, char **argv)
 	line = 0;
 	if ((i = input(argc, argv, &stack1)) == 0)
 		return (end());
-	else if (i == -1)
+	if (stack1.size == 0)
 		return (0);
 	i = stack1.size - 1;
 	while (get_next_line(0, &line))
 	{
-		if (!is_valid(line))
-			return (free_end(&line));
+		if (!is_valid_ret(&line))
+			return (end());
 		if (check_commands(line, &stack1, &stack2) == 0)
 			return (end());
 		free(line);

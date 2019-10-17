@@ -6,7 +6,7 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 18:26:52 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/26 23:27:01 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/10/17 17:46:37 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,10 @@ void	sort_3(t_stack *stack1, t_duo duo)
 void	push_swap(t_stack *stack1, t_stack *stack2)
 {
 	t_duo		duo;
-	int			mas[stack1->size];
-	int			len;
 
 	duo = find_min_max(stack1);
 	push_3_elems(stack1, stack2, duo);
 	sort_3(stack1, duo);
 	push_back(stack2, stack1);
-	sort_final(stack1, stack2, duo);
+	sort_final(stack1, duo);
 }

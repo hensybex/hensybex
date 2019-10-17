@@ -1,31 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_num.c                                     :+:      :+:    :+:   */
+/*   visual.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: medesmon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/19 15:35:14 by medesmon          #+#    #+#             */
-/*   Updated: 2019/01/19 15:36:54 by medesmon         ###   ########.fr       */
+/*   Created: 2019/10/17 17:31:55 by medesmon          #+#    #+#             */
+/*   Updated: 2019/10/17 17:31:58 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_count_num(int n)
-{
-	int				i;
-	unsigned int	neg;
-
-	i = 0;
-	if (n < 0)
-		neg = -n;
-	else
-		neg = n;
-	while (neg > 0)
-	{
-		neg /= 10;
-		i++;
-	}
-	return (i);
-}

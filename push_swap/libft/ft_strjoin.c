@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: medesmon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 10:30:27 by medesmon          #+#    #+#             */
-/*   Updated: 2019/02/06 03:51:47 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/10/01 12:21:06 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (mem == NULL)
 		return (NULL);
 	ft_strcpy(mem, s1);
-	ft_strcat(mem, s2);
+	ft_strcat(mem, (char*)s2);
 	return (mem);
 }

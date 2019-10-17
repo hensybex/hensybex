@@ -6,7 +6,7 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/26 23:12:04 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/26 23:14:54 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/10/01 13:30:48 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_isnumber(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] == '-')
+		if (str[i] == '-' || str[i] == '+')
 		{
 			if (i == 0)
 			{

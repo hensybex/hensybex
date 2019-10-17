@@ -6,7 +6,7 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 04:38:45 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/20 04:38:47 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/10/01 12:28:11 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strdel1join(char *s1, char *s2)
 	if (mem == NULL)
 		return (NULL);
 	ft_strcpy(mem, s1);
-	ft_strcat(mem, s2);
+	mem = ft_strcat(mem, s2);
 	ft_strdel(&s1);
 	return (mem);
 }

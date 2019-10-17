@@ -6,7 +6,7 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 04:43:18 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/26 21:53:08 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/10/17 17:48:27 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct	s_return
 typedef struct	s_stack
 {
 	int			data[STACK_MAX_SIZE];
-	size_t		size;
+	int			size;
 	int			stack_num;
 }				t_stack;
 
@@ -100,6 +100,10 @@ void			rotate_one(int *len_in, int *len_out,
 t_stack *stack1, t_stack *stack2);
 void			rotate_one_alt(int *len_in, int *len_out,
 t_stack *stack1, t_stack *stack2);
-void			sort_final(t_stack *stack1, t_stack *stack2, t_duo duo);
+void			sort_final(t_stack *stack1, t_duo duo);
+int				free_ret(char **line);
+int				free_itoa(char **line, char *new, char **origin);
+int				free_ret_1(char **line);
+int				free_new(char **origin, int i);
 
 #endif

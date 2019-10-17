@@ -6,7 +6,7 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/26 20:51:00 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/26 22:06:10 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/10/17 17:47:17 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	push_back(t_stack *stack2, t_stack *stack1)
 	}
 }
 
-void	sort_final(t_stack *stack1, t_stack *stack2, t_duo duo)
+void	sort_final(t_stack *stack1, t_duo duo)
 {
 	int i;
 	int position;

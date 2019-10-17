@@ -6,7 +6,7 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 18:46:51 by medesmon          #+#    #+#             */
-/*   Updated: 2019/09/26 23:16:49 by medesmon         ###   ########.fr       */
+/*   Updated: 2019/10/17 17:47:20 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	push_concrete(t_stack *stack1, t_stack *stack2, int i)
 
 int		count_out(t_stack *stack, int i)
 {
-	int	fl;
 	int	k;
 	int	len_out;
 
@@ -80,8 +79,6 @@ int		count_in(t_stack *stack_from, t_stack *stack_into, int i)
 
 int		count_concrete(t_stack *stack1, t_stack *stack2, int i)
 {
-	int	k;
-	int	fl;
 	int	len_out;
 	int	len_in;
 	int	full_len;
@@ -106,7 +103,6 @@ void	push_final(t_stack *stack1, t_stack *stack2, int i)
 {
 	int	len_out;
 	int	len_in;
-	int	full_len;
 
 	len_out = count_out(stack1, i);
 	len_in = count_in(stack2, stack1, i);
