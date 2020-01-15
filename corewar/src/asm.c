@@ -18,6 +18,8 @@ void	print_info(t_parse *champ)
 	int			i;
 	t_labels	*buff_l;
 
+	ft_putstr("\n\n");
+	ft_putendl("---------------------------Printing info---------------------------");
 	ft_putstr("Name:");
 	ft_putendl(champ->name);
 	ft_putstr("Comment:");
@@ -48,7 +50,9 @@ void	print_info(t_parse *champ)
 			i++;
 		}
 		ft_putendl(buff->label);
-		ft_putchar('\n');
+		ft_putstr("Size of this command is: ");
+		ft_putnbr(sizing(buff));
+		ft_putstr("\n\n\n");
 		buff = buff->next;
 	}
 	ft_putchar('\n');
@@ -59,6 +63,9 @@ void	print_info(t_parse *champ)
 		ft_putendl(buff_l->label);
 		buff_l = buff_l->next;
 	}
+	ft_putendl("---------------------------End of info---------------------------");
+	ft_putstr("\n");
+
 }
 
 int		main(int ac, char **av)
@@ -70,10 +77,12 @@ int		main(int ac, char **av)
 	if (ac == 2)
 		parse(av[1], champ);
 	print_info(champ);
+	label_conversion(champ);
 	// проверка на количество входных данных (ac != 0) +
 	// считывание && ошибки (+-)
 	// перевод в asm - (обработать случаи с интами, начинающимися с 00000)
 	// запись в файл -
-	// уборка за собой -
+	// уборка за собой -x
+	print_program_end
 	return (0);
 }

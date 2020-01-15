@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   label_search.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: timofeykamenetskiy <timofeykamenetskiy@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/24 03:54:36 by medesmon          #+#    #+#             */
-/*   Updated: 2019/12/26 06:51:41 by medesmon         ###   ########.fr       */
+/*   Updated: 2020/01/14 16:22:54 by timofeykame      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

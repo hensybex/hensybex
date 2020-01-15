@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: timofeykamenetskiy <timofeykamenetskiy@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/19 03:20:48 by medesmon          #+#    #+#             */
-/*   Updated: 2019/12/26 06:54:48 by medesmon         ###   ########.fr       */
+/*   Updated: 2020/01/14 16:24:24 by timofeykame      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,21 +96,39 @@ void	line_processing(char *line, t_parse *champ, int fd)
 		command_search(line, champ, NULL);
 }
 
+void	check_last_symbol(char *line, t_parse *champ)
+{
+	if (line[0] == '\0')
+		champ->last_symbol = 1;
+	else
+		champ->last_symbol = 0;
+}
+
 void	parse(char *file, t_parse *champ)
 {
 	int		fd;
 	char	*line;
 
+	ft_putstr("\n");
+	ft_putendl("---------------------------Parsing---------------------------");
 	if ((fd = open(file, O_RDONLY)) == -1)
 		error("Cannot open file", -1);
+	champ->last_symbol = 0;
+	ft_putendl("---Searching labels\n");
 	while (get_next_line(fd, &line) > 0)
 	{
+		//ft_putnbr(champ->line_num);
+		//ft_putchar(' ');
 		label_search(line, champ, fd);
 		free(line);
 		champ->line_num++;
+		//check_last_symbol(line, champ);
+		//ft_putendl(line);
 	}
+	//if (champ->last_symbol == 1 || )
 	champ->line_num = 1;
 	fd = open(file, O_RDONLY);
+	ft_putendl("---Processing commands");
 	while (get_next_line(fd, &line) > 0)
 	{
 		line_processing(line, champ, fd);

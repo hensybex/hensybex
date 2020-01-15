@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   label_processing.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: timofeykamenetskiy <timofeykamenetskiy@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/25 05:29:28 by medesmon          #+#    #+#             */
-/*   Updated: 2019/12/25 05:55:13 by medesmon         ###   ########.fr       */
+/*   Updated: 2020/01/14 16:04:27 by timofeykame      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,11 @@ void	label_processing(char *line, int fd, t_parse *champ)
 {
 	char	*buff;
 	int		i;
+	char	*label;
 
 	buff = ft_strchr(line, LABEL_CHAR) + 1;
-	buff = skip_whitespace(buff);
-	while (is_empty(buff) && get_next_line(fd, &line) > 0)
+	label = cut_label(line);
+	while ((is_empty(buff) || buff[0] == '\0') && get_next_line(fd, &line) > 0)
 		buff = ft_strjoin(buff, line);
-	command_search(buff, champ, cut_label(line));
+	command_search(buff, champ, label);
 }
