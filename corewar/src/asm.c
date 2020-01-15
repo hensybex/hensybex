@@ -3,12 +3,14 @@
 t_parse *init_champ(t_parse *champ)
 {
 	champ = (t_parse *)malloc(sizeof(t_parse));
-	champ->name = 0;
-	champ->comment = 0;
+	champ->name = NULL;
+	champ->comment = NULL;
 	champ->list_cmd = NULL;
 	champ->error = 0;
 	champ->labels = NULL;
 	champ->line_num = 1;
+	champ->size = 0;
+	champ->exec_code = NULL;
 	return (champ);
 }
 
@@ -68,9 +70,49 @@ void	print_info(t_parse *champ)
 
 }
 
+char    *cor_file(char *filename)
+{
+    char *str;
+    char *buff;
+
+    str = NULL;
+    if (ft_strstr(filename, ".s") != NULL && filename[ft_strlen(filename) - 1] && filename[ft_strlen(filename) - 2] && filename[ft_strlen(filename) - 1] == 's' && filename[ft_strlen(filename) - 2] == '.')
+    {
+        str = ft_strndup(filename, ft_strlen(filename) - 2);
+        buff = str;
+        str = ft_strjoin(str, ".cor");
+        free(buff);
+    }
+    else
+        error("Файл не корректный!", -1);
+    return (str);
+}
+
+void    memory_clearing(t_parse *champ)
+{
+    t_command   *buff;
+    int         i;
+
+    free(champ->name);
+    free(champ->comment);
+    free(champ->exec_code);
+    while (champ->list_cmd != NULL)
+    {
+        i = 0;
+        while (i < 3)
+            free (champ->list_cmd->arg[i++]);
+        buff = champ->list_cmd;
+        champ->list_cmd = champ->list_cmd->next;
+        free(buff);
+    }
+    free(champ);
+}
+
 int		main(int ac, char **av)
 {
 	t_parse *champ;
+	int		fd;
+	char	*filename;
 
 	print_program_start
 	champ = init_champ(champ);
@@ -78,6 +120,13 @@ int		main(int ac, char **av)
 		parse(av[1], champ);
 	print_info(champ);
 	label_conversion(champ);
+	/* to_asm_code(champ);
+    filename = cor_file(av[1]);
+    if ((fd = open(filename, O_CREAT | O_TRUNC | O_WRONLY)) == -1)
+        error("Файл не создался!", -1);
+    write_bytecode_file(fd, champ);
+    free(filename);
+    memory_clearing(champ); */
 	// проверка на количество входных данных (ac != 0) +
 	// считывание && ошибки (+-)
 	// перевод в asm - (обработать случаи с интами, начинающимися с 00000)

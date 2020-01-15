@@ -1,11 +1,14 @@
 .name		"Name"
 .comment	"Comment"
 
-live %1
-ld %1, r5
-l:
-	live %-1
-la:	live %2
-lab:live %3
-labe:	live %4
-label:	live %5
+live	%9999999
+st r4, -500
+b2:
+live	%9999999
+st r4, -500
+live	%9999999
+live	%:b2
+st r4, -500
+live	%9999999
+st r4, -500
+st r4, -500

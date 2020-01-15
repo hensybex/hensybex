@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   command_search.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: timofeykamenetskiy <timofeykamenetskiy@    +#+  +:+       +#+        */
+/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/19 03:22:21 by medesmon          #+#    #+#             */
-/*   Updated: 2020/01/14 18:48:56 by timofeykame      ###   ########.fr       */
+/*   Updated: 2020/01/15 15:52:53 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,8 +129,9 @@ char	*is_dir(char *line, t_command *cmd, t_parse *champ)
 		check_label_validity(tmp_line, champ);
 	else if (ft_strcmp(ft_itoa(ft_atoi(tmp_line)), tmp_line) != 0)
 		error("Invalid argument [T_DIR]", champ->line_num);
+	tmp_line--;
 	add_cmd_arg(tmp_line, cmd);
-	line += ft_strlen(tmp_line) + 1;
+	line += ft_strlen(tmp_line);
 	return (line);
 }
 

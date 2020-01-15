@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: timofeykamenetskiy <timofeykamenetskiy@    +#+  +:+       +#+         #
+#    By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/27 12:36:50 by noobythetur       #+#    #+#              #
-#    Updated: 2020/01/14 15:42:14 by timofeykame      ###   ########.fr        #
+#    Updated: 2020/01/15 14:46:39 by medesmon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ LIST =			asm \
 				label_search \
 				label_processing \
 				label_converter \
+				to_asm_code \
+				file \
 
 OBJ =			$(addprefix obj/, $(addsuffix .o, $(LIST)))
 

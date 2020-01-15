@@ -21,17 +21,11 @@ typedef struct			s_command
 	size_t				label_size;
 }						t_command;
 
-/* typedef struct			s_matrice
-{
-	
-};
- */
 typedef struct			s_labels
 {
 	char				*label;
 	struct s_labels		*next;
 }						t_labels;
-
 
 typedef struct			s_parse
 {
@@ -42,6 +36,8 @@ typedef struct			s_parse
 	t_labels			*labels;
 	int					error;
 	int					last_symbol;
+	int32_t				size;
+	uint8_t				*exec_code;
 }						t_parse;
 
 void	parse(char *file, t_parse *champ);
@@ -53,5 +49,8 @@ int		is_label(char *line);
 char	*cut_label(char *str);
 size_t	sizing(t_command *buff);
 void	label_conversion(t_parse *champ);
+void	to_asm_code(t_parse *champ);
+void	write_bytecode_file(int fd, t_parse *champ);
+void	mem_cpy(void *dst, void *src, int n);
 
 #endif
