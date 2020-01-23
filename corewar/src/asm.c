@@ -108,30 +108,41 @@ void    memory_clearing(t_parse *champ)
     free(champ);
 }
 
+void	check_file_extension(int ac, char *line)
+{
+	int	i;
+
+	if (ac != 2)
+		error("Too much arguments in argv", 0);
+	i = 0;
+	while (line[i] != '.')
+		i++;
+	if (line[i + 1] != 's' || line[i + 2] != '\0')
+		error("Wrong file extension in argv", 0);
+}
+
 int		main(int ac, char **av)
 {
 	t_parse *champ;
 	int		fd;
 	char	*filename;
 
-	print_program_start
 	champ = init_champ(champ);
-	if (ac == 2)
-		parse(av[1], champ);
-	print_info(champ);
+	check_file_extension(ac, av[1]);
+	parse(av[1], champ);
+	//print_info(champ);
 	label_conversion(champ);
-	/* to_asm_code(champ);
-    filename = cor_file(av[1]);
+	to_asm_code(champ);
+	filename = cor_file(av[1]);
     if ((fd = open(filename, O_CREAT | O_TRUNC | O_WRONLY)) == -1)
         error("Файл не создался!", -1);
     write_bytecode_file(fd, champ);
     free(filename);
-    memory_clearing(champ); */
+    memory_clearing(champ);
 	// проверка на количество входных данных (ac != 0) +
 	// считывание && ошибки (+-)
 	// перевод в asm - (обработать случаи с интами, начинающимися с 00000)
 	// запись в файл -
 	// уборка за собой -x
-	print_program_end
 	return (0);
 }

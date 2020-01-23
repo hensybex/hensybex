@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: timofeykamenetskiy <timofeykamenetskiy@    +#+  +:+       +#+        */
+/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/19 03:20:48 by medesmon          #+#    #+#             */
-/*   Updated: 2020/01/14 16:24:24 by timofeykame      ###   ########.fr       */
+/*   Updated: 2020/01/17 18:33:06 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,29 @@ void	line_processing(char *line, t_parse *champ, int fd)
 		command_search(line, champ, NULL);
 }
 
-void	check_last_symbol(char *line, t_parse *champ)
+void	check_last_symbols(char *file, int fd)
 {
-	if (line[0] == '\0')
-		champ->last_symbol = 1;
-	else
-		champ->last_symbol = 0;
+	char	*line;
+	int		i;
+	char	buff[2];
+	int		counter;
+
+	line = (char *)malloc(sizeof(char) * 1);
+	line[0] = '\0';
+	while ((i = read(fd, buff, 1)) > 0)
+		line = ft_strjoin(line, buff);
+	i = 0;
+	while (line[i])
+		i++;
+	i--;
+	counter = 0;
+	while (line[i] == '\n')
+	{
+		counter++;
+		i--;
+	}
+	if (counter != 1)
+		error("Wrong amount of empty lines at the end of file", -1);
 }
 
 void	parse(char *file, t_parse *champ)
@@ -109,12 +126,11 @@ void	parse(char *file, t_parse *champ)
 	int		fd;
 	char	*line;
 
-	ft_putstr("\n");
-	ft_putendl("---------------------------Parsing---------------------------");
 	if ((fd = open(file, O_RDONLY)) == -1)
 		error("Cannot open file", -1);
+	check_last_symbols(file, fd);
+	fd = open(file, O_RDONLY);
 	champ->last_symbol = 0;
-	ft_putendl("---Searching labels\n");
 	while (get_next_line(fd, &line) > 0)
 	{
 		//ft_putnbr(champ->line_num);
@@ -127,14 +143,29 @@ void	parse(char *file, t_parse *champ)
 	}
 	//if (champ->last_symbol == 1 || )
 	champ->line_num = 1;
-	fd = open(file, O_RDONLY);
-	ft_putendl("---Processing commands");
+	fd = open(file, O_RDWR | O_APPEND);
 	while (get_next_line(fd, &line) > 0)
 	{
 		line_processing(line, champ, fd);
 		free(line);
 		champ->line_num++;
+		/* if (i == 0)
+		{
+			ft_putendl(buff);
+			if (buff == '\0')
+				ft_putendl("ZBS");
+			else
+				ft_putendl("GOVNO");
+			break;
+		}
+		else
+		{
+			if (buff)
+				free(buff);
+			buff = line;
+		} */
 	}
+	
 	if (champ->name == NULL || champ->comment == NULL)
 		error("Undefined parsing error", champ->line_num);
 }

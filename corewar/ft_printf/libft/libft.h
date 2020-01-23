@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: timofeykamenetskiy <timofeykamenetskiy@    +#+  +:+       +#+        */
+/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 15:20:40 by smanhack          #+#    #+#             */
-/*   Updated: 2020/01/12 19:22:25 by timofeykame      ###   ########.fr       */
+/*   Updated: 2020/01/17 17:11:41 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

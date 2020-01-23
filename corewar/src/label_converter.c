@@ -44,7 +44,6 @@ size_t  sizing_line_down(t_command *buff, int location)
 
 	size = 0;
     i = location;
-	ft_putstr("\ndown\n");
     while (i < 3)
     {
 		if (buff->arg[i])
@@ -68,9 +67,6 @@ size_t  sizing_line_up(t_command *buff, int location)
     if (g_op[buff->type].args_types_code)
         size++;
     i = 0;
-	ft_putchar('\n');
-	ft_putnbr(size);
-	ft_putstr("up\n");
     while (i < location)
     {
         if (buff->arg[i])
@@ -147,13 +143,6 @@ size_t	calculate_sizing(t_parse *champ, t_command *command, int cmd_num, int nee
 	size = 0;
 	buff = champ->list_cmd;
 	label_place = find_label(cut_first_two_symbols(command->arg[needed_arg]), champ);
-	ft_putnbr(cmd_num);
-	ft_putchar(' ');
-	ft_putstr(cut_first_two_symbols(command->arg[needed_arg]));
-	ft_putchar(' ');
-	ft_putnbr(label_place);
-	ft_putchar(' ');
-	
 	if (cmd_num < label_place)
 	{
 		while (i != cmd_num + 1)
@@ -163,7 +152,6 @@ size_t	calculate_sizing(t_parse *champ, t_command *command, int cmd_num, int nee
 			i++;
 			buff = buff->next;
 		}
-		ft_putnbr(size);
 		while (i != label_place - 1)
 		{
 			size += sizing(buff);
@@ -178,7 +166,6 @@ size_t	calculate_sizing(t_parse *champ, t_command *command, int cmd_num, int nee
 			i++;
 			buff = buff->next;
 		}
-		ft_putnbr(size);
 		while (i != cmd_num)
 		{
 			size += sizing(buff);
@@ -189,7 +176,6 @@ size_t	calculate_sizing(t_parse *champ, t_command *command, int cmd_num, int nee
 		}
 		size *= -1;
 	}
-	ft_putchar('\n');
 	return (size);
 }
 
@@ -199,7 +185,6 @@ void	label_conversion(t_parse *champ)
 	int			i;
 	int			needed_arg;
 
-	ft_putendl("\n---------------------------Conversing labels---------------------------");
 	buff = champ->list_cmd;
 	i = 0;
 	while (buff != NULL)
@@ -209,13 +194,8 @@ void	label_conversion(t_parse *champ)
 			buff->label_size = calculate_sizing(champ, buff, i, needed_arg);
 			free(buff->arg[needed_arg]);
 			buff->arg[needed_arg] = ft_itoa(buff->label_size);
-			ft_putstr("Size of label is ");
-			ft_putnbr(buff->label_size);
-			ft_putchar('\n');
 		}
 		buff = buff->next;
 		i++;
 	}
-	
-	ft_putendl("\n---------------------------End of label conversion---------------------------\n");
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smanhack <smanhack@student.42.fr>          +#+  +:+       +#+        */
+/*   By: medesmon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/23 13:40:45 by smanhack          #+#    #+#             */
-/*   Updated: 2019/10/29 13:16:57 by smanhack         ###   ########.fr       */
+/*   Created: 2019/01/21 05:16:52 by medesmon          #+#    #+#             */
+/*   Updated: 2019/02/14 20:19:50 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,10 @@
 # define GET_NEXT_LINE_H
 
 # define BUFF_SIZE 100
-# include <libc.h>
-# include "libft.h"
+# define FD_MAX_NUM 4864
 
-typedef struct		s_file
-{
-	int				fd;
-	char			*line;
-}					t_file;
+# include "./libft/includes/libft.h"
 
-int					get_next_line(const int fd, char **line);
+int		get_next_line(const int fd, char **line);
 
 #endif
