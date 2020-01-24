@@ -6,7 +6,7 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 14:41:26 by medesmon          #+#    #+#             */
-/*   Updated: 2020/01/15 15:23:03 by medesmon         ###   ########.fr       */
+/*   Updated: 2020/01/24 22:12:33 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ size_t  add_arg(t_command *buff, size_t i, t_parse *champ)
             }
             else
             {
+				str = buff->arg[j];
                 num16 = ft_atoi(str);
                 ft_memcpy(champ->exec_code + i, &num16, 2);
                 i += 2;

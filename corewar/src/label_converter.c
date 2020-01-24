@@ -12,7 +12,7 @@
 
 #include "../includes/asm.h"
 
-size_t  sizing(t_command *buff)
+size_t		sizing(t_command *buff)
 {
 	size_t  size;
 	size_t  i;
@@ -37,29 +37,31 @@ size_t  sizing(t_command *buff)
 	return (size);
 }
 
-size_t  sizing_line_down(t_command *buff, int location)
+size_t		sizing_line_down(t_command *buff, int location)
 {
-    size_t  size;
-    size_t  i;
+	size_t  size;
+	size_t  i;
 
-	size = 0;
-    i = location;
-    while (i < 3)
-    {
+	size = 1;
+	if (g_op[buff->type].args_types_code)
+		size++;
+	i = 0;
+	while (i < 3)
+	{
 		if (buff->arg[i])
-        {
-            if (*(buff->arg[i]) == 'r')
-                size++;
-            else if (*(buff->arg[i]) == DIRECT_CHAR)
-                size += g_op[buff->type].t_dir_size;
-            else
-                size += 2;
-        }
-        i++;
-    }
-    return (size);
+		{
+			if (*(buff->arg[i]) == 'r')
+				size++;
+			else if (*(buff->arg[i]) == DIRECT_CHAR)
+				size += g_op[buff->type].t_dir_size;
+			else
+				size += 2;
+		}
+		i++;
+	}
+	return (size);
 }
-size_t  sizing_line_up(t_command *buff, int location)
+size_t		sizing_line_up(t_command *buff, int location)
 {
     size_t  size;
     size_t  i;
@@ -83,7 +85,7 @@ size_t  sizing_line_up(t_command *buff, int location)
     return (size);
 }
 
-int		label_in_arg(t_command *command)
+int			label_in_arg(t_command *command)
 {
 	int	i;
 
@@ -97,7 +99,7 @@ int		label_in_arg(t_command *command)
 	return (-1);
 }
 
-char	*cut_first_two_symbols(char *line)
+char		*cut_first_two_symbols(char *line)
 {
 	int	i;
 	char	*new_line;
@@ -113,7 +115,7 @@ char	*cut_first_two_symbols(char *line)
 	return (new_line);
 }
 
-int		find_label(char *arg, t_parse *champ)
+int			find_label(char *arg, t_parse *champ)
 {
 	t_command	*buff;
 	int			i;
@@ -132,7 +134,7 @@ int		find_label(char *arg, t_parse *champ)
 	return (i);
 }
 
-size_t	calculate_sizing(t_parse *champ, t_command *command, int cmd_num, int needed_arg)
+size_t		calculate_sizing(t_parse *champ, t_command *command, int cmd_num, int needed_arg)
 {
 	int			label_place;
 	t_command	*buff;
@@ -171,15 +173,32 @@ size_t	calculate_sizing(t_parse *champ, t_command *command, int cmd_num, int nee
 			size += sizing(buff);
 			i++;
 			buff = buff->next;
-			if (i == label_place)
-				size += sizing_line_up(buff, needed_arg);
+/* 			if (i == label_place)
+				size += sizing_line_up(buff, needed_arg); */
 		}
 		size *= -1;
 	}
 	return (size);
 }
 
-void	label_conversion(t_parse *champ)
+static char	*add_percent_at_start(char *line)
+{
+	int		i;
+	char	*new_line;
+
+	i = 0;
+	new_line = (char *)malloc(sizeof(char) * (ft_strlen(line) + 1));
+	new_line[0] = '%';
+	while (i < ft_strlen(line))
+	{
+		new_line[i + 1] = line[i];
+		i++;
+	}
+	new_line[i + 1] = '\0';
+	return (new_line);
+}
+
+void		label_conversion(t_parse *champ)
 {
 	t_command	*buff;
 	int			i;
@@ -193,7 +212,7 @@ void	label_conversion(t_parse *champ)
 		{
 			buff->label_size = calculate_sizing(champ, buff, i, needed_arg);
 			free(buff->arg[needed_arg]);
-			buff->arg[needed_arg] = ft_itoa(buff->label_size);
+			buff->arg[needed_arg] = add_percent_at_start(ft_itoa(buff->label_size));
 		}
 		buff = buff->next;
 		i++;

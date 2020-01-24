@@ -6,7 +6,7 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/19 03:22:21 by medesmon          #+#    #+#             */
-/*   Updated: 2020/01/15 15:52:53 by medesmon         ###   ########.fr       */
+/*   Updated: 2020/01/24 21:52:52 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,8 +203,13 @@ char	*is_regdir(char *line, t_command *cmd, t_parse *champ)
 		tmp_line++;
 		if (line[0] == 'r' && ft_atoi(tmp_line) > REG_NUMBER)
 			error("Reg number beyound limit", champ->line_num);
-		if (ft_strcmp(ft_itoa(ft_atoi(tmp_line)), tmp_line) != 0)
-			error("Invalid argument [T_REG/T_DIR]", champ->line_num);
+		else
+		{
+			if (tmp_line[0] == LABEL_CHAR)
+				check_label_validity(tmp_line, champ);
+			else if (ft_strcmp(ft_itoa(ft_atoi(tmp_line)), tmp_line) != 0)
+				error("Invalid argument [T_REG/T_DIR]", champ->line_num);
+		}
 		tmp_line--;
 	}
 	else
@@ -228,7 +233,9 @@ char	*is_dirindir(char *line, t_command *cmd, t_parse *champ)
 	else
 	{
 		tmp_line++;
-		if (ft_strcmp(ft_itoa(ft_atoi(tmp_line)), tmp_line) != 0)
+		if (tmp_line[0] == LABEL_CHAR)
+			check_label_validity(tmp_line, champ);
+		else if (ft_strcmp(ft_itoa(ft_atoi(tmp_line)), tmp_line) != 0)
 			error("Invalid argument [T_IND/T_DIR]", champ->line_num);
 		tmp_line--;
 	}
@@ -248,8 +255,13 @@ char	*is_any(char *line, t_command *cmd, t_parse *champ)
 		tmp_line++;
 		if (line[0] == 'r' && ft_atoi(tmp_line) > REG_NUMBER)
 			error("Reg number beyound limit", champ->line_num);
-		if (ft_strcmp(ft_itoa(ft_atoi(tmp_line)), tmp_line) != 0)
-			error("Invalid argument [T_REG/T_DIR/T_IND]", champ->line_num);
+		else
+		{
+			if (tmp_line[0] == LABEL_CHAR)
+				check_label_validity(tmp_line, champ);
+			else if (ft_strcmp(ft_itoa(ft_atoi(tmp_line)), tmp_line) != 0)
+				error("Invalid argument [T_REG/T_DIR/T_IND]", champ->line_num);
+		}
 		tmp_line--;
 	}
 	else
@@ -538,10 +550,10 @@ void	command_search(char *line, t_parse *champ, char *label)
 	int			j;
 	t_command	*cmd;
 
+	line = skip_whitespace(line);
 	if (line[0] != '\0')
 	{
 		cmd = command_init();
-		line = skip_whitespace(line);
 		i = 0;
 		while (ft_strcmp(cut_command(line), g_op[i].name) != 0 && i < 16)
 			i++;

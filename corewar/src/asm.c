@@ -125,6 +125,7 @@ int		main(int ac, char **av)
 {
 	t_parse *champ;
 	int		fd;
+	int		fd2;
 	char	*filename;
 
 	champ = init_champ(champ);
@@ -139,6 +140,7 @@ int		main(int ac, char **av)
     write_bytecode_file(fd, champ);
     free(filename);
     memory_clearing(champ);
+	ft_putendl("------------------------------------------SUCCESS!!!------------------------------------------");
 	// проверка на количество входных данных (ac != 0) +
 	// считывание && ошибки (+-)
 	// перевод в asm - (обработать случаи с интами, начинающимися с 00000)

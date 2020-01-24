@@ -52,5 +52,6 @@ void	label_conversion(t_parse *champ);
 void	to_asm_code(t_parse *champ);
 void	write_bytecode_file(int fd, t_parse *champ);
 void	mem_cpy(void *dst, void *src, int n);
+char	*cut_comment(char *line);
 
 #endif

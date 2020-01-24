@@ -6,7 +6,7 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/19 03:20:48 by medesmon          #+#    #+#             */
-/*   Updated: 2020/01/17 18:33:06 by medesmon         ###   ########.fr       */
+/*   Updated: 2020/01/24 22:04:32 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,16 +84,60 @@ void	comment_search(char *line, t_parse *champ, int fd)
 		error("Simbols after comment", champ->line_num);
 }
 
+char	*cut_before(char *str, int place)
+{
+	int		i;
+	char	*new_str;
+
+	i = 0;
+	new_str = (char *)malloc(sizeof(char) * place);
+	while (i < place)
+	{
+		new_str[i] = str[i];
+		i++;
+	}
+	new_str[i] = '\0';
+	return (new_str);
+}
+
+char	*cut_comment(char *line)
+{
+	int	i;
+	int	fl;
+	int	place;
+
+	i = 0;
+	fl = 0;
+	while (line[i])
+	{
+		if (line[i] == COMMENT_CHAR || line[i] == ALT_COMMENT_CHAR)
+		{
+			fl = 1;
+			place = i;
+		}
+		i++;
+	}
+	if (fl == 0)
+		return (line);
+	else
+		return(cut_before(line, place));
+}
+
 void	line_processing(char *line, t_parse *champ, int fd)
 {
-	if (ft_strstr(line, NAME_CMD_STRING))
-		name_search(line, champ, fd);
-	else if (ft_strstr(line, COMMENT_CMD_STRING))
-		comment_search(line, champ, fd);
-	else if (is_label(line))
-		label_processing(line, fd, champ);
+	char	*new_line;
+
+	if (line[0] == COMMENT_CHAR || line[0] == ALT_COMMENT_CHAR)
+		return ;
+	new_line = ft_strdup(cut_comment(line));
+	if (ft_strstr(new_line, NAME_CMD_STRING))
+		name_search(new_line, champ, fd);
+	else if (ft_strstr(new_line, COMMENT_CMD_STRING))
+		comment_search(new_line, champ, fd);
+	else if (is_label(new_line))
+		label_processing(new_line, fd, champ);
 	else
-		command_search(line, champ, NULL);
+		command_search(new_line, champ, NULL);
 }
 
 void	check_last_symbols(char *file, int fd)
@@ -128,20 +172,15 @@ void	parse(char *file, t_parse *champ)
 
 	if ((fd = open(file, O_RDONLY)) == -1)
 		error("Cannot open file", -1);
-	check_last_symbols(file, fd);
+	//check_last_symbols(file, fd); // проверка \n в последней строке!!!
 	fd = open(file, O_RDONLY);
 	champ->last_symbol = 0;
 	while (get_next_line(fd, &line) > 0)
 	{
-		//ft_putnbr(champ->line_num);
-		//ft_putchar(' ');
 		label_search(line, champ, fd);
 		free(line);
 		champ->line_num++;
-		//check_last_symbol(line, champ);
-		//ft_putendl(line);
 	}
-	//if (champ->last_symbol == 1 || )
 	champ->line_num = 1;
 	fd = open(file, O_RDWR | O_APPEND);
 	while (get_next_line(fd, &line) > 0)
@@ -149,21 +188,6 @@ void	parse(char *file, t_parse *champ)
 		line_processing(line, champ, fd);
 		free(line);
 		champ->line_num++;
-		/* if (i == 0)
-		{
-			ft_putendl(buff);
-			if (buff == '\0')
-				ft_putendl("ZBS");
-			else
-				ft_putendl("GOVNO");
-			break;
-		}
-		else
-		{
-			if (buff)
-				free(buff);
-			buff = line;
-		} */
 	}
 	
 	if (champ->name == NULL || champ->comment == NULL)

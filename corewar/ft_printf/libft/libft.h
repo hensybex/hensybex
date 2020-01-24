@@ -6,7 +6,7 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 15:20:40 by smanhack          #+#    #+#             */
-/*   Updated: 2020/01/17 17:11:41 by medesmon         ###   ########.fr       */
+/*   Updated: 2020/01/24 20:15:33 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char				*ft_strrchr(const char *s, int c);
 char				*ft_strnstr(const char *haystack, const char *needle,
 					size_t len);
 void				ft_striter(char *s, void (*f)(char *));
-char				*ft_itoa(int n);
+char				*ft_itoa(long long n);
 char				*ft_strmap(char const *s, char (*f)(char));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
@@ -85,7 +85,7 @@ size_t				ft_number_words(char const *s, char c);
 char				**ft_freesplit(char **p, size_t i);
 int					get_next_line(const int fd, char **line);
 char				*ft_itoa_ll(long long n);
-int					ft_atoi(const char *str);
+long long			ft_atoi(const char *str);
 char				*ft_strjoin(char const *s1, char const *s2);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				ft_putnbr(int n);

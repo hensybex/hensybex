@@ -15,9 +15,8 @@ live	%9999999
 live	%:b2
 
 st r4, -500
+forks:
+add	r2, r3, r2		;increment r2
 
 live	%9999999
 
-st r4, -500
-
-st r4, -500
