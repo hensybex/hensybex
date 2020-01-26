@@ -11,21 +11,21 @@
 # define print_program_end ft_putendl("------------------------------------------------------Program ends here------------------------------------------------------");
 void	error(char *error, int line);
 
-typedef struct			s_command
-{
-	int					type;
-	char				*arg[3];
-	struct s_command	*next;
-	char				*label;
-	int					arg_num;
-	size_t				label_size;
-}						t_command;
-
 typedef struct			s_labels
 {
 	char				*label;
 	struct s_labels		*next;
 }						t_labels;
+
+typedef struct			s_command
+{
+	int					type;
+	char				*arg[3];
+	struct s_command	*next;
+	struct s_labels		*labels;
+	int					arg_num;
+	size_t				label_size;
+}						t_command;
 
 typedef struct			s_parse
 {
@@ -41,7 +41,7 @@ typedef struct			s_parse
 }						t_parse;
 
 void	parse(char *file, t_parse *champ);
-void	command_search(char *line, t_parse *champ, char *label);
+void	command_search(char *line, t_parse *champ, t_labels *labels);
 void	label_search(char *line, t_parse *champ, int fd);
 char	*skip_whitespace(char *line);
 void	label_processing(char *line, int fd, t_parse *champ);

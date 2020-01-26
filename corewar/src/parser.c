@@ -6,7 +6,7 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/19 03:20:48 by medesmon          #+#    #+#             */
-/*   Updated: 2020/01/24 22:04:32 by medesmon         ###   ########.fr       */
+/*   Updated: 2020/01/26 21:22:54 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ char	*cut_comment(char *line)
 
 	i = 0;
 	fl = 0;
-	while (line[i])
+	while (line[i] && fl == 0)
 	{
 		if (line[i] == COMMENT_CHAR || line[i] == ALT_COMMENT_CHAR)
 		{
@@ -161,7 +161,7 @@ void	check_last_symbols(char *file, int fd)
 		counter++;
 		i--;
 	}
-	if (counter != 1)
+	if (counter == 0)
 		error("Wrong amount of empty lines at the end of file", -1);
 }
 
@@ -172,7 +172,7 @@ void	parse(char *file, t_parse *champ)
 
 	if ((fd = open(file, O_RDONLY)) == -1)
 		error("Cannot open file", -1);
-	//check_last_symbols(file, fd); // проверка \n в последней строке!!!
+	check_last_symbols(file, fd); // проверка \n в последней строке!!!
 	fd = open(file, O_RDONLY);
 	champ->last_symbol = 0;
 	while (get_next_line(fd, &line) > 0)
@@ -192,4 +192,5 @@ void	parse(char *file, t_parse *champ)
 	
 	if (champ->name == NULL || champ->comment == NULL)
 		error("Undefined parsing error", champ->line_num);
+	close(fd);
 }

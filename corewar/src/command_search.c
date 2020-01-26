@@ -6,7 +6,7 @@
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/19 03:22:21 by medesmon          #+#    #+#             */
-/*   Updated: 2020/01/24 21:52:52 by medesmon         ###   ########.fr       */
+/*   Updated: 2020/01/26 21:03:00 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_command	*command_init()
 	cmd->arg[1] = 0;
 	cmd->arg[2] = 0;
 	cmd->next = NULL;
-	cmd->label = NULL;
+	cmd->labels = NULL;
 	cmd->arg_num = 0;
 	cmd->label_size = 0;
 	return (cmd);
@@ -544,7 +544,14 @@ char	*cut_command(char *line)
 	return (command);
 }
 
-void	command_search(char *line, t_parse *champ, char *label)
+/* t_labels	*get_labels(t_labels *labels)
+{
+	t_labels	*new_labels;
+
+	new_labels
+} */
+
+void	command_search(char *line, t_parse *champ, t_labels *labels)
 {
 	int			i;
 	int			j;
@@ -561,8 +568,8 @@ void	command_search(char *line, t_parse *champ, char *label)
 			error("Undefined command", champ->line_num);
 		cmd->type = i;
 		check_command(cmd, line, champ);
-		if (label != NULL)
-			cmd->label = ft_strdup(label);
+		if (labels != NULL)
+			cmd->labels = labels;
 	}
 }
 

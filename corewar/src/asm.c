@@ -51,7 +51,11 @@ void	print_info(t_parse *champ)
 			}
 			i++;
 		}
-		ft_putendl(buff->label);
+		while (buff->labels)
+		{
+			ft_putendl(buff->labels->label);
+			buff->labels = buff->labels->next;
+		}
 		ft_putstr("Size of this command is: ");
 		ft_putnbr(sizing(buff));
 		ft_putstr("\n\n\n");
@@ -131,15 +135,15 @@ int		main(int ac, char **av)
 	champ = init_champ(champ);
 	check_file_extension(ac, av[1]);
 	parse(av[1], champ);
-	//print_info(champ);
 	label_conversion(champ);
+	//print_info(champ);
 	to_asm_code(champ);
 	filename = cor_file(av[1]);
-    if ((fd = open(filename, O_CREAT | O_TRUNC | O_WRONLY)) == -1)
-        error("Файл не создался!", -1);
-    write_bytecode_file(fd, champ);
-    free(filename);
-    memory_clearing(champ);
+	if ((fd = open(filename, O_CREAT | O_TRUNC | O_WRONLY)) == -1)
+		error("Файл не создался!", -1);
+	write_bytecode_file(fd, champ);
+	free(filename);
+	memory_clearing(champ);
 	ft_putendl("------------------------------------------SUCCESS!!!------------------------------------------");
 	// проверка на количество входных данных (ac != 0) +
 	// считывание && ошибки (+-)

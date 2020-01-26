@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   label_search.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: timofeykamenetskiy <timofeykamenetskiy@    +#+  +:+       +#+        */
+/*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/24 03:54:36 by medesmon          #+#    #+#             */
-/*   Updated: 2020/01/14 16:22:54 by timofeykame      ###   ########.fr       */
+/*   Updated: 2020/01/26 20:36:28 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,17 +94,21 @@ void	add_label(char *line, t_parse *champ)
 
 void	label_search(char *line, t_parse *champ, int fd)
 {
-	int	i;
+	int		i;
+	char	*new_line;
 
-	line = skip_whitespace(line);
+	if (line[0] == COMMENT_CHAR || line[0] == ALT_COMMENT_CHAR)
+		return ;
+	new_line = ft_strdup(cut_comment(line));
+	new_line = skip_whitespace(new_line);
 	i = 0;
-	while (line[i] != LABEL_CHAR && line[i] && line[i] != ' ')
+	while (new_line[i] != LABEL_CHAR && new_line[i] && new_line[i] != ' ')
 		i++;
-	if (line[i - 1] == DIRECT_CHAR && line[i] == LABEL_CHAR)
-		check_exception(line, champ->line_num);
-	else if (line[i] == LABEL_CHAR)
+	if (new_line[i - 1] == DIRECT_CHAR && new_line[i] == LABEL_CHAR)
+		check_exception(new_line, champ->line_num);
+	else if (new_line[i] == LABEL_CHAR)
 	{
-		check_label_symbols(line, champ->line_num);
-		add_label(line, champ);
+		check_label_symbols(new_line, champ->line_num);
+		add_label(new_line, champ);
 	}
 }
