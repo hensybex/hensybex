@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: medesmon <medesmon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 04:32:56 by medesmon          #+#    #+#             */
-/*   Updated: 2019/11/07 15:16:25 by medesmon         ###   ########.fr       */
+/*   Created: 2019/11/07 16:07:05 by medesmon          #+#    #+#             */
+/*   Updated: 2019/11/07 16:09:30 by medesmon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "fdf.h"
 
-int	ft_isdigit(int c)
+int	remake_ret_error(char **line, t_return_read_file *ret)
 {
-	if (c <= '9' && c >= '0')
-		return (1);
-	else
-		return (0);
+	ret->error = -1;
+	return (-1);
+}
+
+int	return_error(char **line, t_return_read_file ret)
+{
+	if (ret.error == -1)
+	{
+		free(line);
+		return (-1);
+	}
+	return (0);
 }

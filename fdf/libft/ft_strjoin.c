@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: medesmon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: smanhack <smanhack@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/15 10:30:27 by medesmon          #+#    #+#             */
-/*   Updated: 2019/02/06 03:51:47 by medesmon         ###   ########.fr       */
+/*   Created: 2019/04/11 21:28:01 by mriley            #+#    #+#             */
+/*   Updated: 2019/11/06 12:36:57 by smanhack         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,20 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char			*mem;
-	int				len;
+	size_t	len;
+	char	*res;
+	char	*temp;
 
-	if (!s1 || !s2)
-		return (0);
-	len = ft_strlen(s1) + ft_strlen(s2) + 1;
-	mem = (char *)malloc(sizeof(*mem) * len);
-	if (mem == NULL)
-		return (NULL);
-	ft_strcpy(mem, s1);
-	ft_strcat(mem, s2);
-	return (mem);
+	len = (s1 ? ft_strlen(s1) : 0) + (s2 ? ft_strlen(s2) : 0);
+	res = (char*)malloc(sizeof(char) * (len + 1));
+	temp = res;
+	if (res)
+	{
+		while (s1 && *s1 != '\0')
+			*temp++ = (char)*s1++;
+		while (s2 && *s2 != '\0')
+			*temp++ = (char)*s2++;
+		*temp = '\0';
+	}
+	return (res);
 }
